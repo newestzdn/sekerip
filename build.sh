@@ -2,7 +2,7 @@
 # Copyright (C) 2023 newestzdn
 
 # Define variable 
-device_name=chime
+device_codename=chime
 rom_name=aicp
 build_type=userdebug
 branch_tree=aicp
@@ -25,11 +25,11 @@ git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch
 rm -rf prebuilts/clang/host/linux-x86
 
 # Let's sync!
-repo sync -c -j4 --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
+repo sync -c -j(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
     
 # Do lunch
 source build/envsetup.sh 
-lunch "${rom_name}"_"${device_name}"-userdebug
+lunch "${rom_name}"_"${device_codename}"-userdebug
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
