@@ -1,4 +1,5 @@
 # Simple Script for building ROM, Especially Crave.
+# For Personal only, but you can fork and use it.
 # Copyright (C) 2023 newestzdn
 
 # Define variable 
