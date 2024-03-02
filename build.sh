@@ -8,11 +8,11 @@ rom_name=aicp
 build_type=userdebug
 branch_tree=aicp
 branch_rom=t13.0
-rom_manifest=https://github.com/AICP/platform_manifest.git
-build_command=make bacon
+rom_manifest="https://github.com/AICP/platform_manifest.git"
+build_command="make bacon"
 
 # Do repo init for rom that we want to build.
-repo init -u --no-repo-verify -b $branch_rom $rom_manifest --git-lfs --depth=1
+repo init -u --no-repo-verify --depth=1 "${rom_manifest}" -b "${branch_tree}"  --git-lfs
 
 # Remove tree before cloning our manifest.
 rm -rf device/xiaomi
@@ -26,7 +26,7 @@ git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch
 rm -rf prebuilts/clang/host/linux-x86
 
 # Let's sync!
-repo sync -c -j(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
     
 # Do lunch
 source build/envsetup.sh 
@@ -42,4 +42,4 @@ export KBUILD_BUILD_HOST=authority
 export TZ=Asia/Jakarta
 
 # Let's start build!
-$build_command -j(nproc --all)
+$build_command -j$(nproc --all)
