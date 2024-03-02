@@ -2,6 +2,9 @@
 # Copyright (C) 2023 newestzdn
 
 # Define variable 
+device_name=chime
+rom_name=aicp
+build_type=userdebug
 branch_tree=aicp
 branch_rom=t13.0
 rom_manifest=https://github.com/AICP/platform_manifest.git
@@ -26,13 +29,14 @@ repo sync -c -j4 --force-sync --no-clone-bundle --no-tags --optimized-fetch --pr
     
 # Do lunch
 source build/envsetup.sh 
-lunch aicp_chime-userdebug
+lunch "${rom_name}"_"${device_name}"-userdebug
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
 export BUILD_HOSTNAME=crave       
 export KBUILD_BUILD_USER=zaidan    
 export KBUILD_BUILD_HOST=authority
+
 # Define timezone
 export TZ=Asia/Jakarta
 
