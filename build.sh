@@ -12,7 +12,7 @@ rom_manifest="https://github.com/AICP/platform_manifest.git"
 build_command="make bacon"
 
 # Do repo init for rom that we want to build.
-repo init -u --no-repo-verify --depth=1 "${rom_manifest}" -b "${branch_rom}"  --git-lfs
+repo init -u "${rom_manifest}" -b "${branch_rom}"  --git-lfs --depth=1 --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device/xiaomi
