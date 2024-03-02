@@ -41,4 +41,4 @@ export KBUILD_BUILD_HOST=authority
 export TZ=Asia/Jakarta
 
 # Let's start build!
-$build_command -j$(nproc --all)
+$build_command 
