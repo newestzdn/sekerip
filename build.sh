@@ -3,12 +3,12 @@
 # Copyright (C) 2023 newestzdn
 
 # Define variable 
-device_codename=chime
-rom_name=aicp
+device_codename=juice
+rom_name=lineage
 build_type=userdebug
-branch_tree=aicp
-branch_rom=t13.0
-rom_manifest="https://github.com/AICP/platform_manifest.git"
+branch_tree=los-q
+branch_rom=lineage-17.1
+rom_manifest="https://github.com/LineageOS-Revived/android.git"
 build_command="make bacon"
 
 # Do repo init for rom that we want to build.
@@ -17,13 +17,13 @@ repo init -u "${rom_manifest}" -b "${branch_rom}"  --git-lfs --depth=1 --no-repo
 # Remove tree before cloning our manifest.
 rm -rf device/xiaomi
 rm -rf vendor/xiaomi
-rm -rf kernel/xiaomi
+rm -rf kernel
 
 # Clone our local manifest.
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-rm -rf prebuilts/clang/host/linux-x86
+#rm -rf prebuilts/clang/host/linux-x86
 
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
