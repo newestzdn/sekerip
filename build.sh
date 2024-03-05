@@ -23,7 +23,8 @@ rm -rf kernel
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-rm -rf prebuilts/clang/host/linux-x86 prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
+rm -rf prebuilts/clang/host/linux-x86
+#prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
 
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
