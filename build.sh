@@ -36,6 +36,7 @@ lunch "${rom_name}"_"${device_codename}"-userdebug
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
 export BUILD_HOSTNAME=crave       
+export SKIP_ABI_CHECKS=false
 export KBUILD_BUILD_USER=zaidan    
 export KBUILD_BUILD_HOST=authority
 
