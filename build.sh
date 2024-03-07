@@ -4,12 +4,50 @@
 
 # Define variable 
 device_codename=chime
-rom_name=afterlife
+rom_name=aicp
 build_type=userdebug
-branch_tree=afterlife
-branch_rom=LTS
+#rom_manifest="https://github.com/Miku-UI/manifesto"
+#branch_rom=TDA
+#branch_tree=miku
+#build_command="make diva"
+
+if [ $rom_name = "miku" ] then
+rom_manifest="https://github.com/Miku-UI/manifesto"
+branch_rom=TDA
+branch_tree=miku
+build_command="make diva"
+export MIKU_GAPPS=false
+fi
+
+if [ $rom_name = "aicp" ] then
+rom_manifest="https://github.com/AICP/platform_manifest.git"
+branch_rom=t13.0
+branch_tree=aicp
+build_command="make bacon"
+fi
+
+if [ $rom_name = "afterlife" ] then
 rom_manifest="https://github.com/AfterLifePrjkt13/android_manifest"
+branch_rom=LTS
+branch_tree=afterlife
 build_command="m afterlife"
+fi
+
+if [ $rom_name = "plros" ] then
+rom_manifest="https://github.com/AfterLifePrjkt13/android_manifest"
+branch_rom=lineage-20.0
+branch_tree=plros
+build_command="m bacon"
+fi
+
+if [ $rom_name = "lmodroid" ] then
+rom_manifest="https://github.com/burhancodes/lmodroid"
+branch_rom=thirteen
+branch_tree=lmodroid
+build_command="m bacon"
+fi
+
+
 
 # Do repo init for rom that we want to build.
 repo init -u "${rom_manifest}" -b "${branch_rom}"  --git-lfs --depth=1 --no-repo-verify
