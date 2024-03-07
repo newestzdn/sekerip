@@ -34,7 +34,7 @@ if [ "$rom_name" = "afterlife" ]; then
 fi
 
 if [ "$rom_name" = "plros" ]; then
-  rom_manifest="https://github.com/AfterLifePrjkt13/android_manifest"
+  rom_manifest="https://github.com/plros/manifests.git"
   branch_rom="lineage-20.0"
   branch_tree="plros"
   build_command="m bacon"
