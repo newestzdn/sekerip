@@ -53,20 +53,16 @@ fi
 repo init -u "${rom_manifest}" -b "${branch_rom}"  --git-lfs --depth=1 --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device/xiaomi
-rm -rf vendor/xiaomi
-rm -rf kernel
+rm -rf device vendor kernel
 
 # Clone our local manifest.
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-rm -rf prebuilts/clang/host/linux-x86
-#prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
+rm -rf prebuilts/clang/host/linux-x86 prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8 prebuilts/gcc/linux-x86/host/x86_64-w64-mingw32-4.8
 
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
-
 
 # Use different vendor-power
 rm -rf vendor/qcom/opensource/power
