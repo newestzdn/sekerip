@@ -4,7 +4,7 @@
 
 # Clean devspace 
 rm -rf .repo
-rm -rf frameworks 
+rm -rf frameworks tools build bootable bionic
 rm -rf hardware
 rm -rf external libcore libnativehelper bin
 rm -rf vendor
