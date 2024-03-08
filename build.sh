@@ -2,19 +2,6 @@
 # For Personal only, but you can fork and use it.
 # Copyright (C) 2023 newestzdn
 
-# Clean devspace 
-rm -rf .repo
-rm -rf frameworks tools build bootable bionic
-rm -rf hardware
-rm -rf external libcore libnativehelper bin
-rm -rf vendor
-rm -rf system
-rm -rf kernel
-rm -rf device
-rm -rf packages
-rm -rf prebuilts
-rm -rf out
-
 # Define variable 
 device_codename=chime
 rom_name=miku
@@ -77,7 +64,7 @@ rm -rf device vendor kernel
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-rm -rf prebuilts/clang/host/linux-x86 prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8 prebuilts/gcc/linux-x86/host/x86_64-w64-mingw32-4.8
+rm -rf prebuilts
 
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
@@ -85,6 +72,9 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimiz
 # Use different vendor-power
 rm -rf vendor/qcom/opensource/power
 git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_power vendor/qcom/opensource/power
+
+rm -rf packages/resources/devicesettings
+git clone -b lineage-20.0 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 
 # Do lunch
 source build/envsetup.sh 
