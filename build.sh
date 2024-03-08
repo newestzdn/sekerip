@@ -47,7 +47,12 @@ if [ "$rom_name" = "lmodroid" ]; then
   build_command="m bacon"
 fi
 
-
+if [ "$rom_name" = "sparkcustom" ]; then
+  rom_manifest="https://github.com/BuildBots-Den/manifest_spark"
+  branch_rom="pyro-next"
+  branch_tree="sparkcustom"
+  build_command="mka bacon"
+fi
 
 # Do repo init for rom that we want to build.
 repo init -u "${rom_manifest}" -b "${branch_rom}"  --git-lfs --depth=1 --no-repo-verify
