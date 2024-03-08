@@ -2,9 +2,22 @@
 # For Personal only, but you can fork and use it.
 # Copyright (C) 2023 newestzdn
 
+# Clean devspace 
+rm -rf .repo
+rm -rf frameworks 
+rm -rf hardware
+rm -rf external libcore libnativehelper bin
+rm -rf vendor
+rm -rf system
+rm -rf kernel
+rm -rf device
+rm -rf packages
+rm -rf prebuilts
+rm -rf out/host
+
 # Define variable 
 device_codename=chime
-rom_name=aicp
+rom_name=miku
 build_type=userdebug
 #rom_manifest="https://github.com/Miku-UI/manifesto"
 #branch_rom=TDA
