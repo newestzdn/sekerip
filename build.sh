@@ -13,7 +13,7 @@ rm -rf kernel
 rm -rf device
 rm -rf packages
 rm -rf prebuilts
-rm -rf out/host
+rm -rf out
 
 # Define variable 
 device_codename=chime
