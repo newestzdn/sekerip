@@ -17,6 +17,9 @@ if [ "$rom_name" = "miku" ]; then
   branch_tree="miku"
   build_command="make diva"
   export MIKU_GAPPS=false
+  git clone -b lineage-20.0 https://github.com/LineageOS/android_hardware_lineage_interfaces hardware/lineage/interfaces
+  git clone -b lineage-20.0 https://github.com/LineageOS/android_hardware_lineage_compat hardware/lineage/compat 
+  rm -rf hardware/lineage/interfaces/trust 
 fi
 
 if [ "$rom_name" = "aicp" ]; then
@@ -78,6 +81,9 @@ git clone -b lineage-20.0 https://github.com/LineageOS/android_packages_resource
 
 rm -rf hardware/xiaomi
 git clone -b lineage-20 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
+
+rm -rf external/libcxx platform/external/libcxx hardware/xiaomi/hidl/powershare hardware/xiaomi/hidl/touch
+git clone -b lineage-20.0 https://github.com/LineageOS/android_external_libcxx external/libcxx
 
 # Do lunch
 source build/envsetup.sh 
