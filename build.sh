@@ -88,6 +88,9 @@ git clone -b lineage-20.0 https://github.com/LineageOS/android_hardware_lineage_
 
  rm -rf hardware/lineage/interfaces/trust
 
+rm -rf vendor/miku
+git clone -b TDA https://github.com/tstprjkt/platform_vendor_miku vendor/miku
+  
 
 # Do lunch
 source build/envsetup.sh 
