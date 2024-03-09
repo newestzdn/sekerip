@@ -77,7 +77,7 @@ rm -rf packages/resources/devicesettings
 git clone -b lineage-20.0 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 
 rm -rf hardware/xiaomi
-git clone -b lineage-20.0 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
+git clone -b lineage-20 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
 
 # Do lunch
 source build/envsetup.sh 
