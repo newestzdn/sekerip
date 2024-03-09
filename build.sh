@@ -82,10 +82,11 @@ git clone -b lineage-20 https://github.com/LineageOS/android_hardware_xiaomi har
 rm -rf external/libcxx platform/external/libcxx hardware/xiaomi/hidl/powershare hardware/xiaomi/hidl/touch
 git clone -b lineage-20.0 https://github.com/LineageOS/android_external_libcxx external/libcxx
 
-rm -rf hardware/lineage/interfaces hardware/lineage/compat
+rm -rf hardware/miku/interfaces hardware/miku/compat
 git clone -b lineage-20.0 https://github.com/LineageOS/android_hardware_lineage_interfaces hardware/lineage/interfaces 
   git clone -b lineage-20.0 https://github.com/LineageOS/android_hardware_lineage_compat hardware/lineage/compat 
-# rm-rf hardware/lineage/interfaces/trust
+
+ rm -rf hardware/lineage/interfaces/trust
 
 
 # Do lunch
