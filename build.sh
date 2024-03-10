@@ -74,21 +74,14 @@ rm -rf vendor/qcom/opensource/power
 git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_power vendor/qcom/opensource/power
 
 rm -rf packages/resources/devicesettings
-git clone -b lineage-20.0 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+git clone -b lineage-20.0 --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 
 rm -rf hardware/xiaomi
-git clone -b lineage-20 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
+git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
 
-#rm -rf external/libcxx platform/external/libcxx hardware/xiaomi/hidl/powershare hardware/xiaomi/hidl/touch
-#git clone -b lineage-20.0 https://github.com/LineageOS/android_external_libcxx external/libcxx
+rm -rf vendor/spark
+git clone --depth=1 https://github.com/newestzdn/platform_vendor_spark vendor/spark
 
-#rm -rf hardware/miku/interfaces hardware/miku/compat
-#git clone -b lineage-20.0 https://github.com/LineageOS/android_hardware_lineage_interfaces hardware/miku/interfaces 
-#git clone -b lineage-20.0 https://github.com/LineageOS/android_hardware_lineage_compat hardware/miku/compat 
-#rm -rf hardware/miku/interfaces/trust
-#rm -rf vendor/miku
-#git clone -b TDA https://github.com/tstprjkt/platform_vendor_miku vendor/miku
-  
 
 # Do lunch
 source build/envsetup.sh 
