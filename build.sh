@@ -12,7 +12,7 @@ build_type=userdebug
 #build_command="make diva"
 
 if [ "$rom_name" = "miku" ]; then
-  rom_manifest="https://github.com/Miku-UI/manifesto"
+  rom_manifest="https://github.com/newestzdn/manifesto"
   branch_rom="TDA"
   branch_tree="miku"
   build_command="make diva"
