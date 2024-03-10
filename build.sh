@@ -17,7 +17,14 @@ if [ "$rom_name" = "miku" ]; then
   branch_tree="miku"
   build_command="make diva"
   export MIKU_GAPPS=false
-  fi
+fi
+
+if [ "$rom_name" = "baikal" ]; then
+  rom_manifest="https://github.com/baikalos/android.git"
+  branch_rom="13.0"
+  branch_tree="baikal"
+  build_command="m bacon"
+fi
 
 if [ "$rom_name" = "aicp" ]; then
   rom_manifest="https://github.com/AICP/platform_manifest.git"
@@ -64,7 +71,7 @@ rm -rf device vendor kernel
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-rm -rf prebuilts external/libcxx hardware/xiaomi packages
+rm -rf prebuilts external/libcxx hardware packages
 
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
@@ -82,6 +89,8 @@ git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_
 rm -rf vendor/spark
 git clone --depth=1 https://github.com/newestzdn/platform_vendor_spark vendor/spark
 
+#rm -rf packages/apps/Settings
+#git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_apps_Settings packages/apps/Settings
 
 # Do lunch
 source build/envsetup.sh 
