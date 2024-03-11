@@ -86,8 +86,8 @@ git clone -b lineage-20.0 --depth=1 https://github.com/LineageOS/android_package
 rm -rf hardware/xiaomi
 git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
 
-#rm -rf packages/apps/Settings
-#git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_apps_Settings packages/apps/Settings
+rm -rf packages/apps/Settings
+git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_apps_Settings packages/apps/Settings
 
 # Do lunch
 source build/envsetup.sh 
