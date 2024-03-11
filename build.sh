@@ -4,7 +4,7 @@
 
 # Define variable 
 device_codename=chime
-rom_name=sparkcustom
+rom_name=aicp
 build_type=userdebug
 #rom_manifest="https://github.com/Miku-UI/manifesto"
 #branch_rom=TDA
@@ -85,9 +85,6 @@ git clone -b lineage-20.0 --depth=1 https://github.com/LineageOS/android_package
 
 rm -rf hardware/xiaomi
 git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
-
-rm -rf vendor/spark
-git clone --depth=1 https://github.com/newestzdn/platform_vendor_spark vendor/spark
 
 #rm -rf packages/apps/Settings
 #git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_apps_Settings packages/apps/Settings
