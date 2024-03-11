@@ -71,7 +71,7 @@ rm -rf device vendor kernel
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-rm -rf prebuilts external/libcxx hardware packages
+rm -rf prebuilts external/libcxx hardware packages frameworks/base
 
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
@@ -88,6 +88,9 @@ git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_
 
 rm -rf packages/apps/Settings
 git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_apps_Settings packages/apps/Settings
+
+rm -rf frameworks/base
+git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_frameworks_base frameworks/base
 
 # Do lunch
 source build/envsetup.sh 
