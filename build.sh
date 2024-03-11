@@ -4,7 +4,7 @@
 
 # Define variable 
 device_codename=chime
-rom_name=aicp
+rom_name=baikal
 build_type=userdebug
 #rom_manifest="https://github.com/Miku-UI/manifesto"
 #branch_rom=TDA
