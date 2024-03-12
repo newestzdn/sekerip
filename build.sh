@@ -2,6 +2,8 @@
 # For Personal only, but you can fork and use it.
 # Copyright (C) 2023 newestzdn
 
+rm -rf project
+
 # Define variable 
 device_codename=chime
 rom_name=baikal
@@ -94,9 +96,6 @@ git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_app
 
 rm -rf frameworks/base
 git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_frameworks_base frameworks/base
-
-rm -rf vendor/lineage
-git clone -b 13.0 --depth=1 https://github.com/newestzdn/android_vendor_baikalos vendor/lineage
 
 # Do lunch
 source build/envsetup.sh 
