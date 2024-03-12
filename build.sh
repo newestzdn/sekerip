@@ -98,7 +98,7 @@ rm -rf frameworks/base
 git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_frameworks_base frameworks/base
 
 # Do lunch
-source build/envsetup.sh 
+. build/envsetup.sh 
 lunch "${rom_name}"_"${device_codename}"-userdebug
 
 # Define build username and hostname things, also kernel
