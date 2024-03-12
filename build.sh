@@ -101,7 +101,7 @@ git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_frameworks_b
 
 # Do lunch
 . build/env*
-lunch "${rom_name}"_"${device_codename}"-userdebug
+lunch lineage_"${device_codename}"-userdebug
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
