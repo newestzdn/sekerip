@@ -110,8 +110,5 @@ export SKIP_ABI_CHECKS=true
 export KBUILD_BUILD_USER=zaidan    
 export KBUILD_BUILD_HOST=authority
 
-# Define timezone
-export TZ=Asia/Jakarta
-
 # Let's start build!
 $build_command -j$(nproc --all)
