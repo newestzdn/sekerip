@@ -78,6 +78,8 @@ rm -rf prebuilts external/libcxx hardware packages frameworks/base
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
+git clone https://github.com/frstprjkt/kernel_xiaomi_chime-anya kernel/xiaomi/chime
+
 # Use different vendor-power
 rm -rf vendor/qcom/opensource/power
 git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_power vendor/qcom/opensource/power
@@ -98,7 +100,7 @@ rm -rf frameworks/base
 git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_frameworks_base frameworks/base
 
 # Do lunch
-. build/envsetup.sh 
+. build/env*
 lunch "${rom_name}"_"${device_codename}"-userdebug
 
 # Define build username and hostname things, also kernel
