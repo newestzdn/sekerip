@@ -80,8 +80,8 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimiz
 #it clone https://github.com/frstprjkt/kernel_xiaomi_chime-anya kernel/xiaomi/chime
 
 # Uh
-rm -rf packages/providers/DownloadProvider
-git clone --depth=1 https://github.com/ArrowOS/android_packages_providers_DownloadProvider packages/providers/DownloadProvider
+#rm -rf packages/providers/DownloadProvider
+#git clone --depth=1 https://github.com/ArrowOS/android_packages_providers_DownloadProvider packages/providers/DownloadProvider
 
 # Use different vendor-power
 rm -rf vendor/qcom/opensource/power
@@ -96,8 +96,8 @@ git clone -b arrow-13.1 https://github.com/ArrowOS/android_vendor_qcom_opensourc
 rm -rf hardware/xiaomi
 git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
 
-#rm -rf packages/apps/Settings
-#git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_apps_Settings packages/apps/Settings
+rm -rf packages/apps/Settings
+git clone -b 14-qpr1 --depth=1 https://github.com/newestzdn/packages_apps_Settings packages/apps/Settings
 
 #rm -rf frameworks/base
 #git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_frameworks_base frameworks/base
