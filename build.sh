@@ -6,19 +6,18 @@ rm -rf project
 
 # Define variable 
 device_codename=chime
-rom_name=spark
+rom_name=apollo
 build_type=userdebug
-#rom_manifest="https://github.com/Miku-UI/manifesto"
+#rom_manifest="https://github.com/RisingTechOSS/android"
 #branch_rom=TDA
 #branch_tree=miku
 #build_command="make diva"
 
-if [ "$rom_name" = "miku" ]; then
-  rom_manifest="https://github.com/newestzdn/manifesto"
-  branch_rom="TDA"
-  branch_tree="miku"
-  build_command="make diva"
-  export MIKU_GAPPS=false
+if [ "$rom_name" = "apollo" ]; then
+  rom_manifest="https://github.com/ApolloOS/manifest.git"
+  branch_rom="14-qpr1"
+  branch_tree="apollo"
+  build_command="apolloify chime"
 fi
 
 if [ "$rom_name" = "baikal" ]; then
@@ -105,7 +104,7 @@ git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_
 
 # Do lunch
 . build/envsetup.sh
-lunch "${rom_name}"_"${device_codename}"-userdebug
+#lunch "${rom_name}"_"${device_codename}"-userdebug
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
@@ -115,4 +114,5 @@ export KBUILD_BUILD_USER=zaidan
 export KBUILD_BUILD_HOST=authority
 
 # Let's start build!
-$build_command -j$(nproc --all)
+$build_command
+#j$(nproc --all)
