@@ -6,7 +6,7 @@ rm -rf project
 
 # Define variable 
 device_codename=chime
-rom_name=baikal
+rom_name=spark
 build_type=userdebug
 #rom_manifest="https://github.com/Miku-UI/manifesto"
 #branch_rom=TDA
@@ -56,7 +56,7 @@ if [ "$rom_name" = "lmodroid" ]; then
   build_command="m bacon"
 fi
 
-if [ "$rom_name" = "sparkcustom" ]; then
+if [ "$rom_name" = "spark" ]; then
   rom_manifest="https://github.com/BuildBots-Den/manifest_spark"
   branch_rom="pyro-next"
   branch_tree="sparkcustom"
@@ -73,7 +73,7 @@ rm -rf device vendor kernel
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-rm -rf prebuilts external/libcxx hardware packages frameworks/base
+rm -rf system out prebuilts external hardware packages frameworks
 
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
@@ -93,15 +93,15 @@ git clone -b arrow-13.1 https://github.com/ArrowOS/android_vendor_qcom_opensourc
 rm -rf hardware/xiaomi
 git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
 
-rm -rf packages/apps/Settings
-git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_apps_Settings packages/apps/Settings
+#rm -rf packages/apps/Settings
+#git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_apps_Settings packages/apps/Settings
 
-rm -rf frameworks/base
-git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_frameworks_base frameworks/base
+#rm -rf frameworks/base
+#git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_frameworks_base frameworks/base
 
 # Do lunch
-. build/env*
-lunch lineage_"${device_codename}"-userdebug
+. build/envsetup.sh
+lunch "${rom_name}"_"${device_codename}"-userdebug
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
