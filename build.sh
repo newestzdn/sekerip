@@ -6,7 +6,7 @@ rm -rf project
 
 # Define variable 
 device_codename=chime
-rom_name=apollo
+rom_name=spark
 build_type=userdebug
 #rom_manifest="https://github.com/RisingTechOSS/android"
 #branch_rom=TDA
@@ -18,6 +18,7 @@ if [ "$rom_name" = "apollo" ]; then
   branch_rom="14-qpr1"
   branch_tree="apollo"
   build_command="apolloify chime"
+  version_android="lineage-21.0"
 fi
 
 if [ "$rom_name" = "baikal" ]; then
@@ -53,6 +54,7 @@ if [ "$rom_name" = "lmodroid" ]; then
   branch_rom="thirteen"
   branch_tree="lmodroid"
   build_command="m bacon"
+  version_android="lineage-20.0"
 fi
 
 if [ "$rom_name" = "spark" ]; then
@@ -60,6 +62,7 @@ if [ "$rom_name" = "spark" ]; then
   branch_rom="pyro-next"
   branch_tree="sparkcustom"
   build_command="mka bacon"
+  version_android="lineage-20.0"
 fi
 
 # Do repo init for rom that we want to build.
@@ -79,32 +82,40 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimiz
 
 #it clone https://github.com/frstprjkt/kernel_xiaomi_chime-anya kernel/xiaomi/chime
 
-# Uh
-#rm -rf packages/providers/DownloadProvider
-#git clone --depth=1 https://github.com/ArrowOS/android_packages_providers_DownloadProvider packages/providers/DownloadProvider
-
-# Use different vendor-power
+# Use different vendor power, vibrator and clone hardware ximi
 rm -rf vendor/qcom/opensource/power
 git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_power vendor/qcom/opensource/power
-
-rm -rf packages/resources/devicesettings
-git clone -b lineage-21.0 --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
-
 rm -rf vendor/qcom/opensource/vibrator
 git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_vibrator vendor/qcom/opensource/vibrator
-
 rm -rf hardware/xiaomi
 git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
 
-rm -rf packages/apps/Settings
-git clone -b 14-qpr1 --depth=1 https://github.com/newestzdn/packages_apps_Settings packages/apps/Settings
+
+# Clone LOS devicesettings for parts.
+
+rm -rf packages/resources/devicesettings
+git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+
+
+# Additional some source tree things
+#rm -rf packages/apps/Settings
+#git clone -b 14-qpr1 --depth=1 https://github.com/newestzdn/packages_apps_Settings packages/apps/Settings
 
 #rm -rf frameworks/base
 #git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_frameworks_base frameworks/base
 
+#rm -rf packages/resources/devicesettings
+#git clone -b lineage-21.0 --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+
+# Clone for fix spark
+rm -rf packages/providers/DownloadProvider
+git clone --depth=1 https://github.com/ArrowOS/android_packages_providers_DownloadProvider packages/providers/DownloadProvider
+
+#-----------------------------------------
+
 # Do lunch
 . build/envsetup.sh
-#lunch "${rom_name}"_"${device_codename}"-userdebug
+lunch "${rom_name}"_"${device_codename}"-userdebug
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
@@ -114,5 +125,4 @@ export KBUILD_BUILD_USER=zaidan
 export KBUILD_BUILD_HOST=authority
 
 # Let's start build!
-$build_command
-#j$(nproc --all)
+$build_command -j$(nproc --all)
