@@ -2,16 +2,13 @@
 # For Personal only, but you can fork and use it.
 # Copyright (C) 2023 newestzdn
 
+# Clean project first
 rm -rf project
 
 # Define variable 
 device_codename=chime
 rom_name=aicp
 build_type=userdebug
-#rom_manifest="https://github.com/RisingTechOSS/android"
-#branch_rom=TDA
-#branch_tree=miku
-#build_command="make diva"
 
 
 if [ "$rom_name" = "baikal" ]; then
@@ -84,7 +81,6 @@ git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_
 
 
 # Clone LOS devicesettings for parts.
-
 rm -rf packages/resources/devicesettings
 git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 
