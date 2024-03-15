@@ -117,4 +117,5 @@ export KBUILD_BUILD_USER=zaidan
 export KBUILD_BUILD_HOST=authority
 
 # Let's start build!
+make installclean
 $build_command -j$(nproc --all)
