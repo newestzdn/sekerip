@@ -73,8 +73,6 @@ rm -rf system out prebuilts external hardware packages frameworks
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
-#it clone https://github.com/frstprjkt/kernel_xiaomi_chime-anya kernel/xiaomi/chime
-
 # Use different vendor power, vibrator and clone hardware ximi
 rm -rf vendor/qcom/opensource/power
 git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_power vendor/qcom/opensource/power
