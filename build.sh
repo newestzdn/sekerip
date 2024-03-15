@@ -26,6 +26,7 @@ if [ "$rom_name" = "aicp" ]; then
   branch_rom="t13.0"
   branch_tree="aicp"
   build_command="make bacon"
+  version_android="lineage-20.0"
 fi
 
 if [ "$rom_name" = "afterlife" ]; then
