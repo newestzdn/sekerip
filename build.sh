@@ -62,7 +62,7 @@ fi
 repo init -u "${rom_manifest}" -b "${branch_rom}"  --git-lfs --depth=1 --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel
+rm -rf device vendor kernel 
 
 # Clone our local manifest.
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
