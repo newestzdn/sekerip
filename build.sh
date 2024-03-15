@@ -6,20 +6,13 @@ rm -rf project
 
 # Define variable 
 device_codename=chime
-rom_name=spark
+rom_name=aicp
 build_type=userdebug
 #rom_manifest="https://github.com/RisingTechOSS/android"
 #branch_rom=TDA
 #branch_tree=miku
 #build_command="make diva"
 
-if [ "$rom_name" = "apollo" ]; then
-  rom_manifest="https://github.com/ApolloOS/manifest.git"
-  branch_rom="14-qpr1"
-  branch_tree="apollo"
-  build_command="apolloify chime"
-  version_android="lineage-21.0"
-fi
 
 if [ "$rom_name" = "baikal" ]; then
   rom_manifest="https://github.com/baikalos/android.git"
@@ -108,8 +101,8 @@ git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android
 #git clone -b lineage-21.0 --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 
 # Clone for fix spark
-rm -rf packages/providers/DownloadProvider
-git clone --depth=1 https://github.com/ArrowOS/android_packages_providers_DownloadProvider packages/providers/DownloadProvider
+#rm -rf packages/providers/DownloadProvider
+#git clone --depth=1 https://github.com/ArrowOS/android_packages_providers_DownloadProvider packages/providers/DownloadProvider
 
 #-----------------------------------------
 
