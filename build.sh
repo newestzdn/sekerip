@@ -85,6 +85,8 @@ git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_
 rm -rf packages/resources/devicesettings
 git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 
+rm -rf frameworks/base
+git clone https://github.com/tstprjkt/frameworks_base frameworks/base
 
 # Additional some source tree things
 #rm -rf packages/apps/Settings
