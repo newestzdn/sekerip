@@ -78,7 +78,7 @@ git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom
 rm -rf vendor/qcom/opensource/vibrator
 git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_vibrator vendor/qcom/opensource/vibrator
 rm -rf hardware/xiaomi
-git clone -b lineage-20 --depth=1 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
+git clone -b thirteen --depth=1 https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi
 
 
 # Clone LOS devicesettings for parts.
