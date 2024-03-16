@@ -7,7 +7,7 @@ rm -rf project
 
 # Define variable 
 device_codename=chime
-rom_name=aicp
+rom_name=afterlife
 build_type=userdebug
 
 
@@ -31,6 +31,7 @@ if [ "$rom_name" = "afterlife" ]; then
   branch_rom="LTS"
   branch_tree="afterlife"
   build_command="m afterlife"
+  version_android="lineage-20.0"
 fi
 
 if [ "$rom_name" = "plros" ]; then
@@ -89,8 +90,8 @@ git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android
 #rm -rf packages/apps/Settings
 #git clone -b 14-qpr1 --depth=1 https://github.com/newestzdn/packages_apps_Settings packages/apps/Settings
 
-rm -rf frameworks/base
-git clone -b t13.0 --depth=1 https://github.com/newestzdn/frameworks_base frameworks/base
+#rm -rf frameworks/base
+#git clone -b t13.0 --depth=1 https://github.com/newestzdn/frameworks_base frameworks/base
 
 #rm -rf packages/resources/devicesettings
 #git clone -b lineage-21.0 --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
