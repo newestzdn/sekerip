@@ -1,3 +1,8 @@
+#!/bin/bash
+
+DEL="${1}"
+
+
 # Simple Script for building ROM, Especially Crave.
 # For Personal only, but you can fork and use it.
 # Copyright (C) 2023 newestzdn
@@ -73,8 +78,8 @@ rm -rf device vendor kernel
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-if [ "$do_remove" = "yes" ]; then
- rm -rf prebuilts system out prebuilts external hardware packages frameworks
+if [ -n "$DEL" ]; then
+ rm -rf prebuilts
 fi
 
 # Let's sync!
