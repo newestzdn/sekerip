@@ -1,6 +1,7 @@
 # Simple Script for building ROM, Especially Crave.
-# For Personal only, but you can fork and use it.
-# Copyright (C) 2023 newestzdn
+
+# Clean all manifest
+rm -rf .repo
 
 # Define variable 
 device_codename=chime
