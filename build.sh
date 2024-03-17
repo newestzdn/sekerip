@@ -25,6 +25,7 @@ if [ "$rom_name" = "aicp" ]; then
   version_android="lineage-20.0"
 fi
 
+
 if [ "$rom_name" = "carbon" ]; then
   rom_manifest="https://github.com/CarbonROM/android.git"
   branch_rom="cr-11.0"
