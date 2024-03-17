@@ -74,7 +74,7 @@ rm -rf device vendor kernel
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-rm -rf system out prebuilts external hardware packages frameworks
+# rm -rf system out prebuilts external hardware packages frameworks
 
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
