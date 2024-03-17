@@ -93,7 +93,7 @@ rm -rf packages/resources/devicesettings
 git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 
 rm -rf frameworks/base
-git clone https://github.com/tstprjkt/frameworks_base frameworks/base
+git clone https://github.com/newestzdn/fwb_crb frameworks/base
 
 # Additional some source tree things
 #rm -rf packages/apps/Settings
