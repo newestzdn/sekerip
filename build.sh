@@ -2,12 +2,11 @@
 # For Personal only, but you can fork and use it.
 # Copyright (C) 2023 newestzdn
 
-# Clean project first
-
 # Define variable 
 device_codename=chime
 rom_name=carbon
 build_type=userdebug
+do_remove=yes
 
 
 if [ "$rom_name" = "baikal" ]; then
@@ -74,7 +73,9 @@ rm -rf device vendor kernel
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-# rm -rf system out prebuilts external hardware packages frameworks
+if [ "$do_remove" = "yes" ]; then
+ rm -rf prebuilts system out prebuilts external hardware packages frameworks
+fi
 
 # Let's sync!
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
