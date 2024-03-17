@@ -6,7 +6,7 @@
 device_codename=chime
 rom_name=carbon
 build_type=userdebug
-do_remove=yes
+do_remove=no
 
 
 if [ "$rom_name" = "baikal" ]; then
