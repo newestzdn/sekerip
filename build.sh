@@ -96,8 +96,8 @@ rm -rf frameworks/base
 git clone --depth=1 https://github.com/newestzdn/fwb_crb frameworks/base
 
 # Additional some source tree things
-#rm -rf packages/apps/Settings
-#git clone -b 14-qpr1 --depth=1 https://github.com/newestzdn/packages_apps_Settings packages/apps/Settings
+rm -rf packages/apps/Settings
+git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_apps_Settings-1 packages/apps/Settings
 
 #rm -rf frameworks/base
 #git clone -b t13.0 --depth=1 https://github.com/newestzdn/frameworks_base frameworks/base
