@@ -125,3 +125,6 @@ export KBUILD_BUILD_HOST=authority
 # Let's start build!
 make installclean
 $build_command -j$(nproc --all)
+
+# Pull to devspace when done
+crave pull out/target/product/*/*.zip
