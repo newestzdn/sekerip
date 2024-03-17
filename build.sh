@@ -3,11 +3,10 @@
 # Copyright (C) 2023 newestzdn
 
 # Clean project first
-rm -rf project
 
 # Define variable 
 device_codename=chime
-rom_name=afterlife
+rom_name=carbon
 build_type=userdebug
 
 
@@ -23,6 +22,14 @@ if [ "$rom_name" = "aicp" ]; then
   branch_rom="t13.0"
   branch_tree="aicp"
   build_command="make bacon"
+  version_android="lineage-20.0"
+fi
+
+if [ "$rom_name" = "carbon" ]; then
+  rom_manifest="https://github.com/CarbonROM/android.git"
+  branch_rom="cr-11.0"
+  branch_tree="carbon13"
+  build_command="make carbon"
   version_android="lineage-20.0"
 fi
 
