@@ -7,7 +7,8 @@ rm -rf .repo
 device_codename=chime
 rom_name=carbon
 build_type=userdebug
-do_remove=no
+do_cleanremove=no
+do_smallremove=yes
 
 
 if [ "$rom_name" = "baikal" ]; then
@@ -68,14 +69,18 @@ fi
 repo init -u "${rom_manifest}" -b "${branch_rom}"  --git-lfs --depth=1 --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel 
+rm -rf device vendor kernel hardware/xiaomi frameworks/base 
 
 # Clone our local manifest.
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
 # Do remove here before repo sync.
-if [ "$do_remove" = "yes" ]; then
+if [ "$do_cleanremove" = "yes" ]; then
  rm -rf prebuilts system out prebuilts external hardware packages frameworks
+fi
+
+if [ "$do_smallremove" = "yes" ]; then
+ rm -rf out/host prebuilts
 fi
 
 # Let's sync!
