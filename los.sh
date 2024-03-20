@@ -36,8 +36,8 @@ rm -rf vendor/qcom/opensource/power
 git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_power vendor/qcom/opensource/power
 rm -rf vendor/qcom/opensource/vibrator
 git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_vibrator vendor/qcom/opensource/vibrator
-#rm -rf hardware/xiaomi
-#git clone -b thirteen --depth=1 https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi
+rm -rf hardware/xiaomi
+git clone -b thirteen --depth=1 https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi
 
 
 # Clone LOS devicesettings for parts.
@@ -60,4 +60,4 @@ export KBUILD_BUILD_USER=zaidan
 export KBUILD_BUILD_HOST=authority
 
 # Let's start build!
-make bacon -j$(nproc --all)
+make bacon 
