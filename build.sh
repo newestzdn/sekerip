@@ -64,7 +64,7 @@ rm -rf device vendor kernel packages/resources/devicesettings hardware/xiaomi fr
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
- rm -rf prebuilts system out prebuilts external hardware packages
+ rm -rf system out prebuilts external hardware packages
 fi
 
 if [ "$do_smallremove" = "yes" ]; then
