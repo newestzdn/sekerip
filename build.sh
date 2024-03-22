@@ -7,6 +7,7 @@ rm -rf .repo
 device_codename=chime
 rom_name=aicp
 build_type=userdebug
+do_cleanremove=yes
 
 if [ "$rom_name" = "aicp" ]; then
   rom_manifest="https://github.com/AICP/platform_manifest.git"
@@ -60,6 +61,15 @@ repo init -u "${rom_manifest}" -b "${branch_rom}"  --git-lfs --depth=1 --no-repo
 
 # Remove tree before cloning our manifest.
 rm -rf device vendor kernel packages/resources/devicesettings hardware/xiaomi frameworks/base system/core 
+
+# Do remove here before repo sync.
+if [ "$do_cleanremove" = "yes" ]; then
+ rm -rf prebuilts system out prebuilts external hardware packages
+fi
+
+if [ "$do_smallremove" = "yes" ]; then
+ rm -rf out/host prebuilts
+fi
 
 # Clone our local manifest.
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
