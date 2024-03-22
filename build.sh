@@ -97,7 +97,7 @@ rm -rf system/core
 git clone -b t13.0 --depth=1 https://github.com/tstprjkt/system_core-aicp system/core
 
 rm -rf frameworks/base
-git clone --depth=1 -b t13.0 https://github.com/newestzdn/fwb_crb frameworks/base
+git clone --depth=1 -b t13.0 https://github.com/newestzdn/frameworks_base frameworks/base
 
 # Do lunch
 . build/envsetup.sh
