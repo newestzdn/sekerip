@@ -5,18 +5,8 @@ rm -rf .repo
 
 # Define variable 
 device_codename=chime
-rom_name=carbon
+rom_name=aicp
 build_type=userdebug
-do_cleanremove=no
-do_smallremove=yes
-
-
-if [ "$rom_name" = "baikal" ]; then
-  rom_manifest="https://github.com/baikalos/android.git"
-  branch_rom="13.0"
-  branch_tree="baikal"
-  build_command="m bacon"
-fi
 
 if [ "$rom_name" = "aicp" ]; then
   rom_manifest="https://github.com/AICP/platform_manifest.git"
@@ -69,22 +59,13 @@ fi
 repo init -u "${rom_manifest}" -b "${branch_rom}"  --git-lfs --depth=1 --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel hardware/xiaomi frameworks/base 
+rm -rf device vendor kernel packages/resources/devicesettings hardware/xiaomi frameworks/base system/core 
 
 # Clone our local manifest.
 git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
 
-# Do remove here before repo sync.
-if [ "$do_cleanremove" = "yes" ]; then
- rm -rf prebuilts system out prebuilts external hardware packages frameworks
-fi
-
-if [ "$do_smallremove" = "yes" ]; then
- rm -rf out/host prebuilts
-fi
-
 # Let's sync!
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
+/opt/crave/resync.sh
 
 # Use different vendor power, vibrator and clone hardware ximi
 rm -rf vendor/qcom/opensource/power
@@ -99,22 +80,16 @@ git clone -b thirteen --depth=1 https://github.com/PixelExperience/hardware_xiao
 rm -rf packages/resources/devicesettings
 git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 
+rm -rf system/core
+git clone -b t13.0 --depth=1 https://github.com/tstprjkt/system_core-aicp system/core
+
 rm -rf frameworks/base
-git clone --depth=1 https://github.com/newestzdn/fwb_crb frameworks/base
+git clone --depth=1 -b t13.0 https://github.com/newestzdn/fwb_crb frameworks/base
 
 # Additional some source tree things
 rm -rf packages/apps/Settings
-git clone -b patch-1 --depth=1 https://github.com/newestzdn/android_packages_apps_Settings-1 packages/apps/Settings
+git clone -b t13.0 --depth=1 https://github.com/tstprjkt/packages_apps_Settings packages/apps/Settings
 
-#rm -rf frameworks/base
-#git clone -b t13.0 --depth=1 https://github.com/newestzdn/frameworks_base frameworks/base
-
-#rm -rf packages/resources/devicesettings
-#git clone -b lineage-21.0 --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
-
-# Clone for fix spark
-#rm -rf packages/providers/DownloadProvider
-#git clone --depth=1 https://github.com/ArrowOS/android_packages_providers_DownloadProvider packages/providers/DownloadProvider
 
 #-----------------------------------------
 
@@ -131,6 +106,3 @@ export KBUILD_BUILD_HOST=authority
 
 # Let's start build!
 $build_command -j$(nproc --all)
-
-# Pull to devspace when done
-crave pull out/target/product/*/*.zip
