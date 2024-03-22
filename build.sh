@@ -75,23 +75,19 @@ git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom
 rm -rf hardware/xiaomi
 git clone -b thirteen --depth=1 https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi
 
-
 # Clone LOS devicesettings for parts.
 rm -rf packages/resources/devicesettings
 git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+
+# Additional some source tree things
+rm -rf packages/apps/Settings
+git clone -b t13.0 --depth=1 https://github.com/tstprjkt/packages_apps_Settings packages/apps/Settings
 
 rm -rf system/core
 git clone -b t13.0 --depth=1 https://github.com/tstprjkt/system_core-aicp system/core
 
 rm -rf frameworks/base
 git clone --depth=1 -b t13.0 https://github.com/newestzdn/fwb_crb frameworks/base
-
-# Additional some source tree things
-rm -rf packages/apps/Settings
-git clone -b t13.0 --depth=1 https://github.com/tstprjkt/packages_apps_Settings packages/apps/Settings
-
-
-#-----------------------------------------
 
 # Do lunch
 . build/envsetup.sh
