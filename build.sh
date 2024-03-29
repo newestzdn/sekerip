@@ -7,7 +7,7 @@
 device_codename=lime
 rom_name=aosp
 build_type=user
-do_cleanremove=yes
+do_cleanremove=no
 
 if [ "$rom_name" = "aicp" ]; then
   rom_manifest="https://github.com/AICP/platform_manifest.git"
