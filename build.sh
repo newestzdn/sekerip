@@ -1,13 +1,13 @@
 # Simple Script for building ROM, Especially Crave.
 
 # Clean all manifest
-rm -rf .repo
+#rm -rf .repo
 
 # Define variable 
-device_codename=chime
-rom_name=aicp
-build_type=userdebug
-do_cleanremove=no
+device_codename=lime
+rom_name=aosp
+build_type=user
+do_cleanremove=yes
 
 if [ "$rom_name" = "aicp" ]; then
   rom_manifest="https://github.com/AICP/platform_manifest.git"
@@ -48,10 +48,10 @@ if [ "$rom_name" = "lmodroid" ]; then
   version_android="lineage-20.0"
 fi
 
-if [ "$rom_name" = "spark" ]; then
-  rom_manifest="https://github.com/BuildBots-Den/manifest_spark"
-  branch_rom="pyro-next"
-  branch_tree="sparkcustom"
+if [ "$rom_name" = "aosp" ]; then
+  rom_manifest="https://github.com/VoidUI-Tiramisu/manifest"
+  branch_rom="aosp-13"
+  branch_tree="void"
   build_command="mka bacon"
   version_android="lineage-20.0"
 fi
@@ -90,18 +90,10 @@ rm -rf packages/resources/devicesettings
 git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 
 # Additional some source tree things
-rm -rf packages/apps/Settings
-git clone -b t13.0 --depth=1 https://github.com/tstprjkt/packages_apps_Settings packages/apps/Settings
-
-rm -rf system/core
-git clone -b t13.0 --depth=1 https://github.com/tstprjkt/system_core-aicp system/core
-
-rm -rf frameworks/base
-git clone --depth=1 -b t13.0 https://github.com/newestzdn/frameworks_base frameworks/base
 
 # Do lunch
 . build/envsetup.sh
-lunch "${rom_name}"_"${device_codename}"-userdebug
+lunch "${rom_name}"_"${device_codename}"-user
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
