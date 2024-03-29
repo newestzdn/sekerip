@@ -49,7 +49,7 @@ if [ "$rom_name" = "lmodroid" ]; then
 fi
 
 if [ "$rom_name" = "aosp" ]; then
-  rom_manifest="https://github.com/VoidUI-Tiramisu/manifest"
+  rom_manifest="https://github.com/newestzdn/manifest"
   branch_rom="aosp-13"
   branch_tree="void"
   build_command="mka bacon"
