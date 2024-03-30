@@ -4,7 +4,7 @@
 #rm -rf .repo
 
 # Define variable 
-do_cleanremove=yes
+do_cleanremove=no
 
 # Do repo init for rom that we want to build.
 repo init -u https://github.com/Havoc-OS-Revived/android_manifest -b eleven  --git-lfs --depth=1 --no-repo-verify
@@ -22,9 +22,9 @@ if [ "$do_smallremove" = "yes" ]; then
 fi
 
 # Clone our dt, vt and kt
-git clone --depth=1 https://github.com/zaidanprjkt/device_xiaomi_juice -b havoc
-git clone --depth=1 https://github.com/frstprjkt/kernel_xiaomi_chime-anya -b twelve
-git clone --depth=1 https://github.com/zaidanprjkt/android_vendor_xiaomi_juice -b eleven
+git clone --depth=1 https://github.com/zaidanprjkt/device_xiaomi_juice -b havoc device/xiaomi/juice
+git clone --depth=1 https://github.com/frstprjkt/kernel_xiaomi_chime-anya -b twelve kernel/xiaomi/juice
+git clone --depth=1 https://github.com/zaidanprjkt/android_vendor_xiaomi_juice -b eleven vendor/xiaomi/juice
 
 # Let's sync!
 /opt/crave/resync.sh
