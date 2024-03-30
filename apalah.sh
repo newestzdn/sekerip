@@ -33,6 +33,9 @@ git clone --depth=1 https://github.com/zaidanprjkt/android_vendor_xiaomi_juice -
 . build/envsetup.sh
 lunch havoc_juice-user
 
+rm -rf packages/apps/Settings
+git clone --depth=1 https://github.com/newestzdn/settings-havoc packages/apps/Settings
+
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
 export BUILD_HOSTNAME=authority
