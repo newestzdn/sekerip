@@ -23,7 +23,7 @@ fi
 
 # Clone our dt, vt and kt
 git clone --depth=1 https://github.com/zaidanprjkt/device_xiaomi_juice -b havoc device/xiaomi/juice
-git clone --depth=1 https://github.com/frstprjkt/kernel_xiaomi_chime-anya -b twelve kernel/xiaomi/juice
+git clone --depth=1 https://github.com/stormbreaker-project/kernel_poco_citrus kernel/xiaomi/juice
 git clone --depth=1 https://github.com/zaidanprjkt/android_vendor_xiaomi_juice -b eleven vendor/xiaomi/juice
 
 # Let's sync!
