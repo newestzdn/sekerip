@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init -u https://github.com/Havoc-OS-Revived/android_manifest -b eleven  --git-lfs --depth=1 --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel 
+rm -rf device vendor kernel packages/apps/Settings
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
