@@ -12,6 +12,8 @@ repo init -u https://github.com/Havoc-OS-Revived/android_manifest -b eleven  --g
 # Remove tree before cloning our manifest.
 rm -rf device vendor kernel packages/apps/Settings
 
+git clone -b los-q https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
+
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
  rm -rf system out prebuilts external hardware packages
@@ -25,10 +27,6 @@ fi
 /opt/crave/resync.sh
 
 # Clone our dt, vt and kt
-rm -rf device/xiaomi kernel/xiaomi vendor/xiaomi
-git clone --depth=1 https://github.com/zaidanprjkt/device_xiaomi_juice -b havoc device/xiaomi/juice
-git clone --depth=1 https://github.com/stormbreaker-project/kernel_poco_citrus kernel/xiaomi/juice
-git clone --depth=1 https://github.com/zaidanprjkt/android_vendor_xiaomi_juice -b eleven vendor/xiaomi/juice
 
 # Do lunch
 . build/envsetup.sh
