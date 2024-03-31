@@ -21,13 +21,14 @@ if [ "$do_smallremove" = "yes" ]; then
  rm -rf out/host prebuilts
 fi
 
+# Let's sync!
+/opt/crave/resync.sh
+
 # Clone our dt, vt and kt
+rm -rf device/xiaomi/juice kernel/xiaomi/juice vendor/xiaomi/juice
 git clone --depth=1 https://github.com/zaidanprjkt/device_xiaomi_juice -b havoc device/xiaomi/juice
 git clone --depth=1 https://github.com/stormbreaker-project/kernel_poco_citrus kernel/xiaomi/juice
 git clone --depth=1 https://github.com/zaidanprjkt/android_vendor_xiaomi_juice -b eleven vendor/xiaomi/juice
-
-# Let's sync!
-/opt/crave/resync.sh
 
 # Do lunch
 . build/envsetup.sh
