@@ -4,7 +4,7 @@
 #rm -rf .repo
 
 # Define variable 
-do_cleanremove=yes
+do_cleanremove=no
 
 # Do repo init for rom that we want to build.
 repo init --depth=1 -b 11 https://github.com/CorvusOS-Revived/android_manifest.git --git-lfs --no-repo-verify
