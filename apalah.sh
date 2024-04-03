@@ -33,6 +33,9 @@ lunch corvus_juice-user
 rm -rf packages/apps/Settings
 git clone --depth=1 -b patch-1 https://github.com/newestzdn/android_packages_apps_Settings-2 packages/apps/Settings
 
+rm -rf frameworks/base
+git clone --depth=1 -b patch-1 https://github.com/Burhanverse/android_frameworks_base frameworks/base
+
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
 export BUILD_HOSTNAME=authority
