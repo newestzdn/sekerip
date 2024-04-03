@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -b 11 https://github.com/CorvusOS-Revived/android_manifest.git --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel packages/apps/Settings
+rm -rf device vendor kernel packages/apps/Settings frameworks/base
 
 git clone -b corvus https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
 
