@@ -7,7 +7,7 @@
 do_cleanremove=yes
 
 # Do repo init for rom that we want to build.
-repo init -u --depth=1 https://github.com/CorvusOS-Revived/android_manifest.git -b 11 --git-lfs --no-repo-verify
+repo init --depth=1 -b 11 https://github.com/CorvusOS-Revived/android_manifest.git --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device vendor kernel packages/apps/Settings
