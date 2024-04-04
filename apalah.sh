@@ -7,12 +7,16 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/BananaDroid-Revived/android_manifest.git -b 11 --git-lfs --no-repo-verify
+#repo init --depth=1 -u https://github.com/BananaDroid-Revived/android_manifest.git -b 11 --git-lfs --no-repo-verify
+
+repo init --depth=1 -u https://github.com/Havoc-OS-Revived/android_manifest -b eleven --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device vendor kernel packages/apps/Settings frameworks/base
 
-git clone -b banana https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
+#git clone -b banana https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
+
+git clone -b los-q https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
@@ -28,13 +32,18 @@ fi
 
 # Do lunch
 . build/envsetup.sh
-lunch banana_juice-user
+lunch havoc_juice-user
 
+# havoc 
 rm -rf packages/apps/Settings
-git clone --depth=1 -b 11 https://github.com/newestzdn/settings_banana packages/apps/Settings
+git clone --depth=1 -b patch-1 https://github.com/newestzdn/settings_havoc packages/apps/Settings
 
-rm -rf vendor/banana
-git clone --depth=1 -b 11 https://github.com/newestzdn/android_vendor_banana vendor/banana
+# banana
+#rm -rf packages/apps/Settings
+#git clone --depth=1 -b 11 https://github.com/newestzdn/settings_banana packages/apps/Settings
+
+#rm -rf vendor/banana
+#git clone --depth=1 -b 11 https://github.com/newestzdn/android_vendor_banana vendor/banana
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
@@ -46,4 +55,4 @@ export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
 export SELINUX_IGNORE_NEVERALLOWS=false
 
 # Let's start build!
-make banana -j$(nproc --all)
+make bacon -j$(nproc --all)
