@@ -36,7 +36,7 @@ lunch havoc_juice-user
 
 # havoc 
 rm -rf packages/apps/Settings
-git clone --depth=1 -b patch-1 https://github.com/newestzdn/settings_havoc packages/apps/Settings
+git clone --depth=1 -b eleven https://github.com/newestzdn/settings_havoc packages/apps/Settings
 
 # banana
 #rm -rf packages/apps/Settings
