@@ -33,6 +33,9 @@ lunch banana_juice-user
 rm -rf packages/apps/Settings
 git clone --depth=1 -b 11 https://github.com/newestzdn/settings_banana packages/apps/Settings
 
+rm -rf vendor/banana
+git clone --depth=1 -b 11 https://github.com/newestzdn/android_vendor_banana vendor/banana
+
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
 export BUILD_HOSTNAME=authority
