@@ -12,7 +12,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/Havoc-OS-Revived/android_manifest -b eleven --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel packages/apps/Settings frameworks/base
+rm -rf device vendor kernel packages/apps/Settings frameworks/base device/havoc/sepolicy
 
 #git clone -b banana https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
 
@@ -37,6 +37,9 @@ lunch havoc_juice-user
 # havoc 
 rm -rf packages/apps/Settings
 git clone --depth=1 -b eleven https://github.com/newestzdn/settings-havoc packages/apps/Settings
+
+rm -rf device/havoc/sepolicy
+git clone --depth=1 -b eleven https://github.com/zaidannn7/android_device_havoc_sepolicy device/havoc/sepolicy
 
 # banana
 #rm -rf packages/apps/Settings
