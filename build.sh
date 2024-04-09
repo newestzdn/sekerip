@@ -59,7 +59,7 @@ fi
 if [ "$rom_name" = "lineage" ]; then
   rom_manifest="https://github.com/LineageOS/android.git"
   branch_rom="lineage-21.0"
-  branch_tree="los"
+  branch_tree="lineage"
   build_command="m bacon"
   #version_android="lineage-20.0"
 fi
