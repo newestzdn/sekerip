@@ -4,8 +4,8 @@
 #rm -rf .repo
 
 # Define variable 
-device_codename=lime
-rom_name=aosp
+device_codename=chime
+rom_name=lineage
 build_type=user
 do_cleanremove=no
 
@@ -56,11 +56,19 @@ if [ "$rom_name" = "aosp" ]; then
   version_android="lineage-20.0"
 fi
 
+if [ "$rom_name" = "lineage" ]; then
+  rom_manifest="https://github.com/LineageOS/android.git"
+  branch_rom="lineage-21.0"
+  branch_tree="los"
+  build_command="m bacon"
+  #version_android="lineage-20.0"
+fi
+
 # Do repo init for rom that we want to build.
 repo init -u "${rom_manifest}" -b "${branch_rom}"  --git-lfs --depth=1 --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel packages/resources/devicesettings hardware/xiaomi frameworks/base system/core 
+rm -rf device vendor kernel packages/resources/devicesettings system/core 
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
@@ -78,16 +86,16 @@ git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch
 /opt/crave/resync.sh
 
 # Use different vendor power, vibrator and clone hardware ximi
-rm -rf vendor/qcom/opensource/power
-git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_power vendor/qcom/opensource/power
-rm -rf vendor/qcom/opensource/vibrator
-git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_vibrator vendor/qcom/opensource/vibrator
-rm -rf hardware/xiaomi
-git clone -b thirteen --depth=1 https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi
+#rm -rf vendor/qcom/opensource/power
+#git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_power vendor/qcom/opensource/power
+#rm -rf vendor/qcom/opensource/vibrator
+#git clone -b arrow-13.1 --depth=1 https://github.com/ArrowOS/android_vendor_qcom_opensource_vibrator vendor/qcom/opensource/vibrator
+#rm -rf hardware/xiaomi
+#git clone -b thirteen --depth=1 https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi
 
 # Clone LOS devicesettings for parts.
-rm -rf packages/resources/devicesettings
-git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+#rm -rf packages/resources/devicesettings
+#git clone -b "${version_android}" --depth=1 https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 
 # Additional some source tree things
 
@@ -97,7 +105,7 @@ lunch "${rom_name}"_"${device_codename}"-user
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
-export BUILD_HOSTNAME=crave       
+export BUILD_HOSTNAME=authority    
 export SKIP_ABI_CHECKS=true
 export KBUILD_BUILD_USER=zaidan    
 export KBUILD_BUILD_HOST=authority
