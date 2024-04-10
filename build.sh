@@ -101,7 +101,7 @@ git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch
 
 # Do lunch
 . build/envsetup.sh
-lunch "${rom_name}"_"${device_codename}"-ap1a-user
+lunch "${rom_name}"_"${device_codename}"-ap1a-userdebug
 
 # Allow neverallow if userdebug
 export SELINUX_IGNORE_NEVERALLOWS=true
