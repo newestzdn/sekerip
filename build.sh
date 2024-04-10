@@ -101,7 +101,7 @@ git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch
 
 # Do lunch
 . build/envsetup.sh
-lunch "${rom_name}"_"${device_codename}"-user
+lunch "${rom_name}"_"${device_codename}"-ap1a-user
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
