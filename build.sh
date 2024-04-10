@@ -103,6 +103,9 @@ git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch
 . build/envsetup.sh
 lunch "${rom_name}"_"${device_codename}"-ap1a-user
 
+# Allow neverallow if userdebug
+export SELINUX_IGNORE_NEVERALLOWS=true
+
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
 export BUILD_HOSTNAME=authority    
