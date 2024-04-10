@@ -6,7 +6,7 @@
 # Define variable 
 device_codename=chime
 rom_name=lineage
-build_type=user
+build_type=userdebug
 do_cleanremove=no
 
 if [ "$rom_name" = "aicp" ]; then
