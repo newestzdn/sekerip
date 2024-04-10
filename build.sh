@@ -121,6 +121,7 @@ export BUILD_BROKEN_DUP_RULES=true
 export KBUILD_BUILD_USER=zaidan    
 export KBUILD_BUILD_HOST=authority
 export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
+export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 
 # Let's start build!
 $build_command -j$(nproc --all)
