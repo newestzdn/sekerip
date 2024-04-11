@@ -30,7 +30,9 @@ if [ "$do_smallremove" = "yes" ]; then
 fi
 
 # Let's sync!
-/opt/crave/resync.sh
+# /opt/crave/resync.sh
+
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
 # Do lunch
 . build/envsetup.sh
