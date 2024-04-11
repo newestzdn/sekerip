@@ -37,6 +37,12 @@ fi
 lunch xdroid_juice-user
 
 
+rm -rf packages/apps/Settings
+git clone --depth=1 -b eleven https://github.com/newestzdn/settings_xd packages/apps/Settings
+
+rm -rf device/xdroid/sepolicy
+git clone --depth=1 -b eleven https://github.com/newestzdn/xd_sepolicy device/xdroid/sepolicy
+
 
 # havoc 
 #rm -rf packages/apps/Settings
