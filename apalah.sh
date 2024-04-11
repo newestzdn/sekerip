@@ -45,6 +45,7 @@ git clone --depth=1 -b eleven https://github.com/newestzdn/settings_xd packages/
 rm -rf device/xdroid/sepolicy
 git clone --depth=1 -b eleven https://github.com/newestzdn/xd_sepolicy device/xdroid/sepolicy
 
+git clone --depth=1 https://github.com/kdrag0n/proton-clang prebuilts/clang/host/linux-x86/clang-proton
 
 # havoc 
 #rm -rf packages/apps/Settings
