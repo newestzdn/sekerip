@@ -18,7 +18,7 @@ rm -rf device vendor kernel packages/apps/Settings frameworks/base
 
 #git clone -b banana https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
 
-git clone -b los-q https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
+git clone -b xd https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
