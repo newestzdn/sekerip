@@ -9,14 +9,14 @@ do_cleanremove=no
 # Do repo init for rom that we want to build.
 #repo init --depth=1 -u https://github.com/BananaDroid-Revived/android_manifest.git -b 11 --git-lfs --no-repo-verify
 
-#repo init --depth=1 -u https://github.com/Havoc-OS-Revived/android_manifest -b eleven --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/Havoc-OS-Revived/android_manifest -b eleven --git-lfs --no-repo-verify
 
-repo init --depth=1 -u https://github.com/xdCLO/xd_manifest -b eleven --git-lfs --no-repo-verify
+#repo init --depth=1 -u https://github.com/xdCLO/xd_manifest -b eleven --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device vendor kernel packages/apps/Settings frameworks/base 
 
-#git clone -b banana https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
+git clone -b los-q https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
 
 git clone -b xd https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
 
@@ -36,23 +36,17 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
 # Do lunch
 . build/envsetup.sh
-lunch xdroid_juice-user
+lunch havoc_juice-user
 
-
-rm -rf packages/apps/Settings
-git clone --depth=1 -b eleven https://github.com/newestzdn/settings_xd packages/apps/Settings
-
-rm -rf device/xdroid/sepolicy
-git clone --depth=1 -b eleven https://github.com/newestzdn/xd_sepolicy device/xdroid/sepolicy
 
 git clone --depth=1 https://github.com/kdrag0n/proton-clang prebuilts/clang/host/linux-x86/clang-proton
 
-# havoc 
-#rm -rf packages/apps/Settings
-#git clone --depth=1 -b eleven https://github.com/newestzdn/settings-havoc packages/apps/Settings
+ #havoc 
+rm -rf packages/apps/Settings
+git clone --depth=1 -b eleven https://github.com/newestzdn/settings-havoc packages/apps/Settings
 
-#rm -rf device/havoc/sepolicy
-#git clone --depth=1 -b eleven https://github.com/zaidannn7/android_device_havoc_sepolicy device/havoc/sepolicy
+rm -rf device/havoc/sepolicy
+git clone --depth=1 -b eleven https://github.com/zaidannn7/android_device_havoc_sepolicy device/havoc/sepolicy
 
 # banana
 #rm -rf packages/apps/Settings
@@ -71,4 +65,4 @@ export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
 export SELINUX_IGNORE_NEVERALLOWS=false
 
 # Let's start build!
-make xd -j$(nproc --all)
+m bacon -j$(nproc --all)
