@@ -18,7 +18,7 @@ rm -rf device vendor kernel packages/apps/Settings frameworks/base
 
 git clone -b los-q https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
 
-git clone -b xd https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
+#git clone -b xd https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
@@ -30,9 +30,9 @@ if [ "$do_smallremove" = "yes" ]; then
 fi
 
 # Let's sync!
-# /opt/crave/resync.sh
+/opt/crave/resync.sh
 
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+#repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
 # Do lunch
 . build/envsetup.sh
