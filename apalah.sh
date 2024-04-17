@@ -32,7 +32,7 @@ git clone https://github.com/newestzdn/android_packages_apps_Settings packages/a
 
 # Do lunch
 . build/envsetup.sh
-lunch lineage_chime-userdebug
+lunch lineage_chime-ap1a-userdebug
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
