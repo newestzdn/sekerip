@@ -23,8 +23,12 @@ if [ "$do_smallremove" = "yes" ]; then
  rm -rf out/host prebuilts
 fi
 
+
 # Let's sync!
 /opt/crave/resync.sh
+rm -rf packages/apps/Settings
+
+git clone https://github.com/newestzdn/android_packages_apps_Settings packages/apps/Settings
 
 # Do lunch
 . build/envsetup.sh
