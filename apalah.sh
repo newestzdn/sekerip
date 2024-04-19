@@ -26,16 +26,17 @@ fi
 # Let's sync!
 /opt/crave/resync.sh
 
-# Do lunch
-. build/envsetup.sh
-lunch xdroid_juice-user
-
-
 rm -rf packages/apps/Settings
 git clone --depth=1 -b eleven https://github.com/newestzdn/settings_xd packages/apps/Settings
 
 rm -rf device/xdroid/sepolicy
 git clone --depth=1 -b eleven https://github.com/newestzdn/xd_sepolicy device/xdroid/sepolicy
+
+# Do lunch
+. build/envsetup.sh
+lunch xdroid_juice-user
+
+
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
