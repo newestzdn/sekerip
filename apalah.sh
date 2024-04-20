@@ -30,7 +30,10 @@ rm -rf packages/apps/Settings
 git clone --depth=1 -b eleven https://github.com/Authority-Room/xd_packages_apps_Settings packages/apps/Settings
 
 rm -rf device/xdroid/sepolicy
-git clone --depth=1 -b eleven https://github.com/authority-room/xd_device_xdroid_sepolicy device/xdroid/sepolicy
+git clone --depth=1 -b eleven https://github.com/Authority-Room/xd_device_xdroid_sepolicy device/xdroid/sepolicy
+
+rm -rf frameworks/base
+git clone --depth=1 -b eleven https://github.com/Authority-Room/xd_frameworks_base frameworks/base
 
 # Do lunch
 . build/envsetup.sh
