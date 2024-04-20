@@ -27,10 +27,10 @@ fi
 /opt/crave/resync.sh
 
 rm -rf packages/apps/Settings
-git clone --depth=1 -b eleven https://github.com/newestzdn/settings_xd packages/apps/Settings
+git clone --depth=1 -b eleven https://github.com/Authority-Room/xd_packages_apps_Settings packages/apps/Settings
 
 rm -rf device/xdroid/sepolicy
-git clone --depth=1 -b eleven https://github.com/newestzdn/xd_sepolicy device/xdroid/sepolicy
+git clone --depth=1 -b eleven https://github.com/authority-room/xd_device_xdroid_sepolicy device/xdroid/sepolicy
 
 # Do lunch
 . build/envsetup.sh
