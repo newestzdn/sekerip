@@ -7,12 +7,11 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/xdroid-CLO/xd_manifest -b eleven --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/RisingTechOSS/android -b fourteen --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel packages/apps/Settings frameworks/base 
-
-git clone -b xd https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
+rm -rf device vendor kernel hardware 
+#packages/apps/Settings frameworks/base 
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
@@ -26,20 +25,10 @@ fi
 # Let's sync!
 /opt/crave/resync.sh
 
-rm -rf packages/apps/Settings
-git clone --depth=1 -b eleven https://github.com/xdCLO-Modified/xd_packages_apps_Settings packages/apps/Settings
-
-rm -rf device/xdroid/sepolicy
-git clone --depth=1 -b eleven https://github.com/xdCLO-Modified/xd_device_xdroid_sepolicy device/xdroid/sepolicy
-
-rm -rf frameworks/base
-git clone --depth=1 -b eleven https://github.com/xdCLO-Modified/xd_frameworks_base frameworks/base
+git clone -b 14 https://github.com/zaidanprjkt/device_xiaomi_chime_2 device/xiaomi/chime
 
 # Do lunch
 . build/envsetup.sh
-lunch xdroid_juice-user
-
-
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
@@ -49,6 +38,9 @@ export KBUILD_BUILD_USER=zaidan
 export KBUILD_BUILD_HOST=authority
 export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
 export SELINUX_IGNORE_NEVERALLOWS=false
+export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 
-# Let's start build!
-make xd -j$(nproc --all)
+riseup lime userdebug
+
+
+
