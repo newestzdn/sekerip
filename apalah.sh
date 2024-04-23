@@ -43,5 +43,8 @@ export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 riseup lime userdebug
 rise b
 
+riseup citrus userdebug
+rise b
+
 
 
