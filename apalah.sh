@@ -41,6 +41,7 @@ export SELINUX_IGNORE_NEVERALLOWS=false
 export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 
 riseup lime userdebug
+rise b
 
 
 
