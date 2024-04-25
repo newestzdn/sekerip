@@ -7,12 +7,10 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/xdCLO/xd_manifest -b eleven --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/protonplus-org/manifest -b tm-qpr3 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel packages/apps/Settings frameworks/base 
-
-git clone -b xd https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
+rm -rf device vendor kernel hardware
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
@@ -26,19 +24,17 @@ fi
 # Let's sync!
 /opt/crave/resync.sh
 
-rm -rf packages/apps/Settings
-git clone --depth=1 -b eleven https://github.com/xdCLO-Modified/xd_packages_apps_Settings packages/apps/Settings
+git clone https://github.com/zaidanprjkt/device_xiaomi_sm6115-common device/xiaomi/sm6115-common
+git clone --depth=1 https://github.com/zaidanprjkt/vendor_xiaomi_sm6115-common vendor/xiaomi/sm6115-common
+git clone --depth=1 https://github.com/zaidanprjkt/vendor_xiaomi_lime vendor/xiaomi/lime
+git clone https://github.com/zaidanprjkt/device_xiaomi_lime device/xiaomi/lime
+git clone --depth=1 https://github.com/frstprjkt/kernel_xiaomi_chime-anya kernel/xiaomi/sm6115
 
-rm -rf device/xdroid/sepolicy
-git clone --depth=1 -b eleven https://github.com/xdCLO-Modified/xd_device_xdroid_sepolicy device/xdroid/sepolicy
-
-rm -rf frameworks/base
-git clone --depth=1 -b eleven https://github.com/xdCLO-Modified/xd_frameworks_base frameworks/base
+git clone --depth=1 -b lineage-20.0 https://github.com/LOSModified/android_hardware_xiaomi hardware/xiaomi
 
 # Do lunch
-. build/envsetup.sh
-lunch xdroid_juice-user
-
+source build/envsetup.sh
+lunch lime-user
 
 
 # Define build username and hostname things, also kernel
@@ -51,4 +47,4 @@ export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
 export SELINUX_IGNORE_NEVERALLOWS=false
 
 # Let's start build!
-make xd -j$(nproc --all)
+m otapackage -j$(nproc --all)
