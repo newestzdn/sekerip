@@ -7,7 +7,7 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/xdroid-CLO/xd_manifest -b eleven --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/xdCLO/xd_manifest -b eleven --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device vendor kernel packages/apps/Settings frameworks/base 
