@@ -30,8 +30,8 @@ git clone --depth=1 https://github.com/zaidanprjkt/vendor_xiaomi_lime vendor/xia
 git clone https://github.com/zaidanprjkt/device_xiaomi_lime device/xiaomi/lime
 git clone --depth=1 https://github.com/frstprjkt/kernel_xiaomi_chime-anya kernel/xiaomi/sm6115
 
-rm -rf hardware/xiaomi
-git clone --depth=1 -b lineage-20.0 https://github.com/LOSModified/android_hardware_xiaomi hardware/xiaomi
+#rm -rf hardware/xiaomi
+#git clone --depth=1 -b lineage-20.0 https://github.com/LOSModified/android_hardware_xiaomi hardware/xiaomi
 
 #rm -rf hardware/qcom/sm8250/media
 #git clone --depth=1 -b arrow-13.1-caf-sm8250 https://github.com/tstprjkt/android_hardware_qcom_audio hardware/qcom/sm8250/media
