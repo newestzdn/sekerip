@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/protonplus-org/manifest -b tm-qpr3 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel hardware
+rm -rf device vendor kernel system/core
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
@@ -30,21 +30,12 @@ git clone --depth=1 https://github.com/zaidanprjkt/vendor_xiaomi_lime vendor/xia
 git clone https://github.com/zaidanprjkt/device_xiaomi_lime device/xiaomi/lime
 git clone --depth=1 https://github.com/frstprjkt/kernel_xiaomi_chime-anya kernel/xiaomi/sm6115
 
-#rm -rf hardware/xiaomi
-#git clone --depth=1 -b lineage-20.0 https://github.com/LOSModified/android_hardware_xiaomi hardware/xiaomi
-
-#rm -rf hardware/qcom/sm8250/media
-#git clone --depth=1 -b arrow-13.1-caf-sm8250 https://github.com/tstprjkt/android_hardware_qcom_audio hardware/qcom/sm8250/media
-
-
-#rm -rf hardware/qcom/sm8250/display
-#it clone --depth=1 -b arrow-13.1-caf-sm8250 https://github.com/tstprjkt/android_hardware_qcom_display hardware/qcom/sm8250/display
-
+rm -rf system/core
+git clone --depth=1 https://github.com/tstprjkt/system_core-p system/core
  
 # Do lunch
 source build/envsetup.sh
 lunch lime-user
-
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
