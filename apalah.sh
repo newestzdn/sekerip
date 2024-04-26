@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/protonplus-org/manifest -b tm-qpr3 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf hardware system/core frameworks/native bionic
+rm -rf hardware system/core frameworks/native bionic platform/prebuilts/clang/host/linux-x86 prebuilts/clang/host/linux-x86
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
