@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/protonplus-org/manifest -b tm-qpr3 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel system/core
+rm -rf device vendor kernel system/core frameworks/native
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
@@ -32,7 +32,9 @@ git clone --depth=1 https://github.com/frstprjkt/kernel_xiaomi_chime-anya kernel
 
 rm -rf system/core
 git clone --depth=1 https://github.com/tstprjkt/system_core-p system/core
- 
+
+rm -rf frameworks/native
+git clone --depth=1 https://github.com/newestzdn/frameworks_native frameworks/native
 # Do lunch
 source build/envsetup.sh
 lunch lime-user
