@@ -35,6 +35,7 @@ git clone --depth=1 https://github.com/tstprjkt/system_core-p system/core
 
 rm -rf frameworks/native
 git clone --depth=1 https://github.com/newestzdn/frameworks_native frameworks/native
+
 # Do lunch
 source build/envsetup.sh
 lunch lime-user
