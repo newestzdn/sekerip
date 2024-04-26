@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/protonplus-org/manifest -b tm-qpr3 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor hardware kernel system/core frameworks/native bionic
+rm -rf hardware system/core frameworks/native bionic
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
@@ -24,6 +24,7 @@ fi
 # Let's sync!
 /opt/crave/resync.sh
 
+rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi
 git clone https://github.com/zaidanprjkt/device_xiaomi_sm6115-common device/xiaomi/sm6115-common
 git clone --depth=1 https://github.com/zaidanprjkt/vendor_xiaomi_sm6115-common vendor/xiaomi/sm6115-common
 git clone --depth=1 https://github.com/zaidanprjkt/vendor_xiaomi_lime vendor/xiaomi/lime
@@ -38,6 +39,8 @@ git clone --depth=1 https://github.com/newestzdn/frameworks_native frameworks/na
 
 rm -rf bionic
 git clone --depth=1 https://github.com/newestzdn/bionic bionic
+
+
 # Do lunch
 source build/envsetup.sh
 lunch lime-user
