@@ -41,7 +41,7 @@ export SKIP_ABI_CHECKS=true
 export KBUILD_BUILD_USER=zaidan    
 export KBUILD_BUILD_HOST=authority
 export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
-export SELINUX_IGNORE_NEVERALLOWS=true
+export SELINUX_IGNORE_NEVERALLOWS=false
 
 # Let's start build!
 m bacon -j$(nproc --all)
