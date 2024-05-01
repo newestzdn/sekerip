@@ -32,7 +32,7 @@ git clone -b cr https://github.com/zaidanprjkt/device_xiaomi_chime_2 device/xiao
 
 # Do lunch
 . build/envsetup.sh
-lunch lineage_lime-ap1a-userdebug
+lunch lineage_lime-ap1a-user
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
@@ -46,5 +46,5 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 # Let's start build!
 m bacon -j$(nproc --all)
 
-lunch lineage_citrus-ap1a-userdebug
+lunch lineage_citrus-ap1a-user
 m bacon -j$(nproc --all)
