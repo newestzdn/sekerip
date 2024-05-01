@@ -32,7 +32,7 @@ git clone https://github.com/newestzdn/android_packages_apps_Settings packages/a
 
 # Do lunch
 . build/envsetup.sh
-lunch lineage_chime-ap1a-userdebug
+lunch lineage_lime-ap1a-userdebug
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
@@ -44,4 +44,7 @@ export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
 export SELINUX_IGNORE_NEVERALLOWS=true
 
 # Let's start build!
+m bacon -j$(nproc --all)
+
+lunch lineage_citrus-ap1a-userdebug
 m bacon -j$(nproc --all)
