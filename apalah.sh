@@ -10,9 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/crdroidandroid/android -b 14.0 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel packages/apps/Settings
-
-git clone -b lineage https://github.com/zaidanprjkt/local_manifest .repo/local_manifests
+rm -rf device vendor kernel packages/apps/Settings hardware/xiaomi
 
 # Do remove here before repo sync.
 if [ "$do_cleanremove" = "yes" ]; then
@@ -29,6 +27,8 @@ fi
 rm -rf packages/apps/Settings
 
 git clone https://github.com/newestzdn/android_packages_apps_Settings packages/apps/Settings
+
+git clone -b cr https://github.com/zaidanprjkt/device_xiaomi_chime_2 device/xiaomi/chime
 
 # Do lunch
 . build/envsetup.sh
