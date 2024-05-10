@@ -25,7 +25,7 @@ fi
 # Let's sync!
 /opt/crave/resync.sh
 
-git clone -b 14 https://github.com/zaidanprjkt/device_xiaomi_chime_2 device/xiaomi/chime
+git clone -b derp13 https://github.com/zaidanprjkt/device_xiaomi_chime_2 device/xiaomi/chime
 
 # Do lunch
 . build/envsetup.sh
@@ -41,11 +41,11 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 export TARGET_DEFAULT_PIXEL_LAUNCHER=true 
 
-riseup lime userdebug
-rise b
+lunch derp_lime-user
+mka derp
 
-riseup citrus userdebug
-rise b
+riseup derp_citrus-user
+mka derp
 
 
 
