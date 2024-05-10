@@ -7,7 +7,7 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/RisingTechOSS/android -b fourteen --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/DerpFest-AOSP/manifest.git -b 13 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device vendor kernel hardware 
