@@ -29,6 +29,7 @@ git clone --depth=1 -b 14.0 https://github.com/zaidanprjkt/device_xiaomi_sm6115-
 git clone --depth=1 -b 14.0 https://github.com/zaidanprjkt/vendor_xiaomi_sm6115-common-14 device/xiaomi/sm6115-common
 git clone --depth=1 -b fourteen https://github.com/zaidanprjkt/vendor_xiaomi_lime-14 vendor/xiaomi/lime
 git clone --depth=1 -b u https://github.com/zaidanprjkt/vendor_xiaomi_citrus vendor/xiaomi/citrus
+git clone --depth=1 -b ursinia https://github.com/liliumproject/kernel_xiaomi_chime kernel/xiaomi/sm6115
 
 git clone --depth=1 -b rising https://github.com/zaidanprjkt/device_xiaomi_lime device/xiaomi/lime
 git clone --depth=1 -b rising https://github.com/zaidanprjkt/device_xiaomi_citrus device/xiaomi/citrus
