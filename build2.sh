@@ -26,13 +26,13 @@ fi
 /opt/crave/resync.sh
 
 git clone --depth=1 -b 14.0 https://github.com/zaidanprjkt/device_xiaomi_sm6115-common device/xiaomi/sm6115-common
-git clone --depth=1 -b 14.0 https://github.com/zaidanprjkt/vendor_xiaomi_sm6115-common-14 vendor/xiaomi/sm6115-common
+git clone --depth=1 -b fourteen https://github.com/cheldump/vendor_xiaomi_sm6115-common vendor/xiaomi/sm6115-common
 git clone --depth=1 -b fourteen https://github.com/zaidanprjkt/vendor_xiaomi_lime-14 vendor/xiaomi/lime
 git clone --depth=1 -b u https://github.com/zaidanprjkt/vendor_xiaomi_citrus vendor/xiaomi/citrus
 git clone --depth=1 -b ursinia https://github.com/liliumproject/kernel_xiaomi_chime kernel/xiaomi/sm6115
 
-git clone --depth=1 -b cherish https://github.com/zaidanprjkt/device_xiaomi_lime device/xiaomi/lime
-git clone --depth=1 -b cherish https://github.com/zaidanprjkt/device_xiaomi_citrus device/xiaomi/citrus
+git clone --depth=1 -b blaze https://github.com/zaidanprjkt/device_xiaomi_lime device/xiaomi/lime
+git clone --depth=1 -b blaze https://github.com/zaidanprjkt/device_xiaomi_citrus device/xiaomi/citrus
 
 #git clone --depth=1 https://github.com/crdroidandroid/android_hardware_xiaomi hardware/xiaomi
 
@@ -60,8 +60,9 @@ export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 #export TARGET_DEFAULT_PIXEL_LAUNCHER=true 
 
 . build/envsetup.sh
-brunch lime
+lunch blaze_lime-userdebug
+make bacon
 
-brunch citrus
-
+lunch blaze_citrus-userdebug
+make bacon
 
