@@ -60,9 +60,9 @@ export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 #export TARGET_DEFAULT_PIXEL_LAUNCHER=true 
 
 . build/envsetup.sh
-lunch blaze_lime-userdebug
+lunch blaze_lime-ap1a-userdebug
 make bacon
 
-lunch blaze_citrus-userdebug
+lunch blaze_citrus-ap1a-userdebug
 make bacon
 
