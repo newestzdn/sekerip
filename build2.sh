@@ -7,10 +7,10 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/CherishOS/android_manifest.git -b uqpr2 --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/ProjectBlaze/manifest -b 14-QPR2 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel hardware prebuilts platfrom
+rm -rf device vendor kernel hardware prebuilts platform
 #packages/apps/Settings frameworks/base 
 
 # Do remove here before repo sync.
