@@ -59,7 +59,6 @@ export SKIP_ABI_CHECKS=true
 export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 #export TARGET_DEFAULT_PIXEL_LAUNCHER=true 
 
-. build/envsetup.sh
 lunch blaze_lime-ap1a-userdebug
 make bacon
 
