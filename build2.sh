@@ -59,9 +59,9 @@ export SKIP_ABI_CHECKS=true
 export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 #export TARGET_DEFAULT_PIXEL_LAUNCHER=true 
 
-lunch blaze_lime-ap1a-userdebug
+lunch blaze_lime-userdebug
 make bacon
 
-lunch blaze_citrus-ap1a-userdebug
+lunch blaze_citrus-userdebug
 make bacon
 
