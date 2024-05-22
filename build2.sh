@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/ReloadedOS/manifest -b t --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi prebuilts/clang/host/linux-x86 platform external/chromium-webview/
+rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi prebuilts/clang/host/linux-x86 external/chromium-webview/
 #packages/apps/Settings frameworks/base 
 
 # Do remove here before repo sync.
@@ -29,7 +29,7 @@ git clone --depth=1 -b topaz https://github.com/zaidannn7/android_device_xiaomi_
 git clone --depth=1 -b topaz https://github.com/shelby-stuffs/android_vendor_xiaomi_juice vendor/xiaomi/juice
 git clone --depth=1 -b topaz https://github.com/shelby-stuffs/android_kernel_xiaomi_juice vendor/xiaomi/juice
 
-#git clone --depth=1 https://github.com/crdroidandroid/android_hardware_xiaomi hardware/xiaomi
+git clone --depth=1 -b tiramisu https://github.com/Evolution-X/hardware_xiaomi hardware/xiaomi
 
 # Do lunch
 . build/envsetup.sh
