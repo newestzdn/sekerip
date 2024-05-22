@@ -7,7 +7,7 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/ProjectBlaze/manifest -b 14-QPR2 --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/ReloadedOS/manifest -b t --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device vendor kernel hardware prebuilts platform external/chromium-webview/
@@ -25,14 +25,9 @@ fi
 # Let's sync!
 /opt/crave/resync.sh
 
-git clone --depth=1 -b 14.0 https://github.com/zaidanprjkt/device_xiaomi_sm6115-common device/xiaomi/sm6115-common
-git clone --depth=1 -b fourteen https://github.com/cheldump/vendor_xiaomi_sm6115-common vendor/xiaomi/sm6115-common
-git clone --depth=1 -b fourteen https://github.com/zaidanprjkt/vendor_xiaomi_lime-14 vendor/xiaomi/lime
-git clone --depth=1 -b u https://github.com/zaidanprjkt/vendor_xiaomi_citrus vendor/xiaomi/citrus
-git clone --depth=1 -b ursinia https://github.com/liliumproject/kernel_xiaomi_chime kernel/xiaomi/sm6115
-
-git clone --depth=1 -b blaze https://github.com/zaidanprjkt/device_xiaomi_lime device/xiaomi/lime
-git clone --depth=1 -b blaze https://github.com/zaidanprjkt/device_xiaomi_citrus device/xiaomi/citrus
+git clone --depth=1 -b topaz https://github.com/zaidannn7/android_device_xiaomi_juice device/xiaomi/juice
+git clone --depth=1 -b topaz https://github.com/shelby-stuffs/android_vendor_xiaomi_juice vendor/xiaomi/juice
+git clone --depth=1 -b topaz https://github.com/shelby-stuffs/android_kernel_xiaomi_juice vendor/xiaomi/juice
 
 #git clone --depth=1 https://github.com/crdroidandroid/android_hardware_xiaomi hardware/xiaomi
 
