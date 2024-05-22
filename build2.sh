@@ -18,7 +18,7 @@ rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi external/chromi
 
 git clone --depth=1 -b topaz https://github.com/zaidannn7/android_device_xiaomi_juice device/xiaomi/juice
 git clone --depth=1 -b topaz https://github.com/shelby-stuffs/android_vendor_xiaomi_juice vendor/xiaomi/juice
-git clone --depth=1 -b topaz https://github.com/shelby-stuffs/android_kernel_xiaomi_juice vendor/xiaomi/juice
+git clone --depth=1 -b topaz https://github.com/shelby-stuffs/android_kernel_xiaomi_juice kernel/xiaomi/juice
 
 git clone --depth=1 -b tiramisu https://github.com/Evolution-X/hardware_xiaomi hardware/xiaomi
 
@@ -43,4 +43,5 @@ export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 
 #Do lunch
 . build/envsetup.sh
+lunch juice-userdebug
 brunch juice
