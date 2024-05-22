@@ -10,17 +10,8 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/ReloadedOS/manifest -b t --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi prebuilts/clang/host/linux-x86 external/chromium-webview/
+rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi external/chromium-webview/
 #packages/apps/Settings frameworks/base 
-
-# Do remove here before repo sync.
-if [ "$do_cleanremove" = "yes" ]; then
- rm -rf system out prebuilts external hardware packages
-fi
-
-if [ "$do_smallremove" = "yes" ]; then
- rm -rf out/host prebuilts
-fi
 
 # Let's sync!
 /opt/crave/resync.sh
@@ -30,9 +21,6 @@ git clone --depth=1 -b topaz https://github.com/shelby-stuffs/android_vendor_xia
 git clone --depth=1 -b topaz https://github.com/shelby-stuffs/android_kernel_xiaomi_juice vendor/xiaomi/juice
 
 git clone --depth=1 -b tiramisu https://github.com/Evolution-X/hardware_xiaomi hardware/xiaomi
-
-# Do lunch
-. build/envsetup.sh
 
 # Define build username and hostname things, also kernel
 export BUILD_USERNAME=zaidan
@@ -52,6 +40,7 @@ export BUILD_BROKEN_USES_BUILD_COPY_HEADERS=true
 export BUILD_BROKEN_DUP_RULES=true
 export SKIP_ABI_CHECKS=true
 export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
-#export TARGET_DEFAULT_PIXEL_LAUNCHER=true 
 
+#Do lunch
+. build/envsetup.sh
 brunch juice
