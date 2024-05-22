@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/ReloadedOS/manifest -b t --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi prebuilts platform external/chromium-webview/
+rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi prebuilts/clang/host/linux-x86 platform external/chromium-webview/
 #packages/apps/Settings frameworks/base 
 
 # Do remove here before repo sync.
