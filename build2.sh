@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/RisingTechOSS/android -b fourteen --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi platfrom
+rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi external/chromium-webview
 #packages/apps/Settings frameworks/base 
 
 # Let's sync!
