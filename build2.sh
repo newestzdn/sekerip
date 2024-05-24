@@ -1,7 +1,7 @@
 # Simple Script for building ROM, Especially Crave.
 
 # Clean all manifest
-#rm -rf .repo
+rm -rf .repo
 
 # Define variable 
 do_cleanremove=no
