@@ -10,31 +10,15 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/RisingTechOSS/android -b fourteen --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel hardware prebuilts platfrom
+rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi platfrom
 #packages/apps/Settings frameworks/base 
-
-# Do remove here before repo sync.
-if [ "$do_cleanremove" = "yes" ]; then
- rm -rf system out prebuilts external hardware packages
-fi
-
-if [ "$do_smallremove" = "yes" ]; then
- rm -rf out/host prebuilts
-fi
 
 # Let's sync!
 /opt/crave/resync.sh
 
-git clone --depth=1 -b 14.0 https://github.com/zaidanprjkt/device_xiaomi_sm6115-common device/xiaomi/sm6115-common
-git clone --depth=1 -b 14.0 https://github.com/zaidanprjkt/vendor_xiaomi_sm6115-common-14 vendor/xiaomi/sm6115-common
-git clone --depth=1 -b fourteen https://github.com/zaidanprjkt/vendor_xiaomi_lime-14 vendor/xiaomi/lime
-git clone --depth=1 -b u https://github.com/zaidanprjkt/vendor_xiaomi_citrus vendor/xiaomi/citrus
-git clone --depth=1 -b ursinia https://github.com/liliumproject/kernel_xiaomi_chime kernel/xiaomi/sm6115
+git clone --depth=1 -b 14 https://github.com/zaidanprjkt/device_xiaomi_chime_2 device/xiaomi/chime
 
-git clone --depth=1 -b rising https://github.com/zaidanprjkt/device_xiaomi_lime device/xiaomi/lime
-git clone --depth=1 -b rising https://github.com/zaidanprjkt/device_xiaomi_citrus device/xiaomi/citrus
-
-git clone --depth=1 https://github.com/crdroidandroid/android_hardware_xiaomi hardware/xiaomi
+#git clone --depth=1 https://github.com/crdroidandroid/android_hardware_xiaomi hardware/xiaomi
 
 # Do lunch
 . build/envsetup.sh
