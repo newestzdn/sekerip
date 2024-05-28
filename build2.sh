@@ -32,7 +32,9 @@ git clone -b fourteen https://github.com/zaidanprjkt/device_xiaomi_chime-14 devi
 
 #git clone --depth=1 https://github.com/crdroidandroid/android_hardware_xiaomi hardware/xiaomi
 
-rm -rf external/chromium-webview/patches
+#rm -rf external/chromium-webview/patches
+
+cd external/chromium-webview && git lfs fetch && git lfs install && git lfs checkout && cd ../..
 
 # Do lunch
 . build/envsetup.sh
