@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/ProjectBlaze/manifest -b 14-QPR2 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device vendor kernel hardware prebuilts platform external/chromium-webview/
+rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi external/chromium-webview/
 #packages/apps/Settings frameworks/base 
 
 # Do remove here before repo sync.
@@ -22,12 +22,17 @@ if [ "$do_smallremove" = "yes" ]; then
  rm -rf out/host prebuilts
 fi
 
+
+repo forall -c 'git lfs install && git lfs pull && git lfs checkout'
+
 # Let's sync!
 /opt/crave/resync.sh
 
 git clone -b fourteen https://github.com/zaidanprjkt/device_xiaomi_chime-14 device/xiaomi/chime
 
 #git clone --depth=1 https://github.com/crdroidandroid/android_hardware_xiaomi hardware/xiaomi
+
+rm -rf external/chromium-webview/patches
 
 # Do lunch
 . build/envsetup.sh
