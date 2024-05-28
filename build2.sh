@@ -22,9 +22,6 @@ if [ "$do_smallremove" = "yes" ]; then
  rm -rf out/host prebuilts
 fi
 
-
-repo forall -c 'git lfs install && git lfs pull && git lfs checkout'
-
 # Let's sync!
 /opt/crave/resync.sh
 
@@ -35,6 +32,8 @@ git clone -b fourteen https://github.com/zaidanprjkt/device_xiaomi_chime-14 devi
 #rm -rf external/chromium-webview/patches
 
 cd external/chromium-webview && git lfs fetch && git lfs install && git lfs checkout && cd ../..
+
+repo forall -c 'git lfs install && git lfs pull && git lfs checkout'
 
 # Do lunch
 . build/envsetup.sh
