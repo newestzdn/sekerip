@@ -7,7 +7,7 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/LineageOS-Revived/android -b lineage-17.1 --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/NusantaraProject-Revived/android -b 10 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi external/chromium-webview/
@@ -56,9 +56,9 @@ export BUILD_BROKEN_VERIFY_USES_LIBRARIES=true
 export BUILD_BROKEN_USES_BUILD_COPY_HEADERS=true
 export BUILD_BROKEN_DUP_RULES=true
 export SKIP_ABI_CHECKS=true
-export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
+#export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 #export TARGET_DEFAULT_PIXEL_LAUNCHER=true 
 
-lunch lineage_juice-userdebug
-make bacon
+lunch nad_juice-userdebug
+mka nad -j$(nproc --all)
 
