@@ -25,7 +25,7 @@ fi
 # Let's sync!
 /opt/crave/resync.sh
 
-git clone -b quartz https://github.com/zaidanprjkt/device_xiaomi_juice-q device/xiaomi/juice
+git clone -b nad https://github.com/zaidanprjkt/device_xiaomi_juice-q device/xiaomi/juice
 git clone -b 10.lime https://github.com/zaidanprjkt/vendor_xiaomi_juice-q vendor/xiaomi/juice
 
 #git clone --depth=1 https://github.com/crdroidandroid/android_hardware_xiaomi hardware/xiaomi
