@@ -7,7 +7,7 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/ProjectBlaze/manifest -b 14-QPR2 --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/BananaDroid-Revived/android_manifest.git -b 11 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi external/chromium-webview/
@@ -25,9 +25,10 @@ fi
 # Let's sync!
 /opt/crave/resync.sh
 
-git clone -b fourteen https://github.com/zaidanprjkt/device_xiaomi_chime-14 device/xiaomi/chime
+git clone -b banana https://github.com/zaidanprjkt/device_xiaomi_juice device/xiaomi/juice
+git clone -b eleven https://github.com/zaidanprjkt/android_vendor_xiaomi_juice vendor/xiaomi/juice
+git clone -b main https://github.com/greenforce-project/kernel_xiaomi_citrus_sm6115 kernel/xiaomi/juice
 
-#git clone --depth=1 https://github.com/crdroidandroid/android_hardware_xiaomi hardware/xiaomi
 
 #rm -rf external/chromium-webview/patches
 
@@ -55,9 +56,9 @@ export BUILD_BROKEN_VERIFY_USES_LIBRARIES=true
 export BUILD_BROKEN_USES_BUILD_COPY_HEADERS=true
 export BUILD_BROKEN_DUP_RULES=true
 export SKIP_ABI_CHECKS=true
-export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
+#export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 #export TARGET_DEFAULT_PIXEL_LAUNCHER=true 
 
-lunch blaze_chime-userdebug
-make bacon
+lunch banana_juice-user
+make banana
 
