@@ -29,6 +29,11 @@ git clone -b banana https://github.com/zaidanprjkt/device_xiaomi_juice device/xi
 git clone -b eleven https://github.com/zaidanprjkt/android_vendor_xiaomi_juice vendor/xiaomi/juice
 git clone -b main https://github.com/greenforce-project/kernel_xiaomi_citrus_sm6115 kernel/xiaomi/juice
 
+rm -rf packages/apps/Settings
+git clone --depth=1 -b 11 https://github.com/newestzdn/settings_banana packages/apps/Settings
+
+rm -rf vendor/banana
+git clone --depth=1 -b 11 https://github.com/newestzdn/android_vendor_banana vendor/banana
 
 #rm -rf external/chromium-webview/patches
 
