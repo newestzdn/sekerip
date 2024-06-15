@@ -10,7 +10,7 @@ do_cleanremove=no
 repo init --depth=1 -u https://github.com/BananaDroid-Revived/android_manifest.git -b 11 --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
-rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi external/chromium-webview/
+rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi 
 #packages/apps/Settings frameworks/base 
 
 # Do remove here before repo sync.
@@ -36,10 +36,6 @@ rm -rf vendor/banana
 git clone --depth=1 -b 11 https://github.com/newestzdn/android_vendor_banana vendor/banana
 
 #rm -rf external/chromium-webview/patches
-
-cd external/chromium-webview && git lfs fetch && git lfs install && git lfs checkout && cd ../..
-
-repo forall -c 'git lfs install && git lfs pull && git lfs checkout'
 
 # Do lunch
 . build/envsetup.sh
