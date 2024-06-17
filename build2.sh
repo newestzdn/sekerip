@@ -25,7 +25,7 @@ fi
 # Let's sync!
 /opt/crave/resync.sh
 
-git clone -b banana https://github.com/zaidanprjkt/device_xiaomi_juice device/xiaomi/juice
+git clone -b banana https://github.com/Glamoth-Firnament/device_xiaomi_juice-R device/xiaomi/juice
 git clone -b eleven https://github.com/zaidanprjkt/android_vendor_xiaomi_juice vendor/xiaomi/juice
 git clone -b 13.0.0-perf https://github.com/greenforce-project/kernel_xiaomi_citrus_sm6115 kernel/xiaomi/juice
 
