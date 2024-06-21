@@ -7,7 +7,7 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/ProjectBlaze/manifest -b 14-QPR2 --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/BlissRoms/platform_manifest -b universe --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi external/chromium-webview/
@@ -25,15 +25,9 @@ fi
 # Let's sync!
 /opt/crave/resync.sh
 
-git clone -b fourteen https://github.com/zaidanprjkt/device_xiaomi_chime-14 device/xiaomi/chime
+git clone -b 14 https://github.com/Glamoth-Firnament/device_xiaomi_chime-ash device/xiaomi/chime
 
 #git clone --depth=1 https://github.com/crdroidandroid/android_hardware_xiaomi hardware/xiaomi
-
-#rm -rf external/chromium-webview/patches
-
-cd external/chromium-webview && git lfs fetch && git lfs install && git lfs checkout && cd ../..
-
-repo forall -c 'git lfs install && git lfs pull && git lfs checkout'
 
 # Do lunch
 . build/envsetup.sh
@@ -45,7 +39,7 @@ export SKIP_ABI_CHECKS=true
 export KBUILD_BUILD_USER=zaidan    
 export KBUILD_BUILD_HOST=authority
 export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
-export SELINUX_IGNORE_NEVERALLOWS=true
+#export SELINUX_IGNORE_NEVERALLOWS=true
 export ALLOW_MISSING_DEPENDENCIES=true
 export RELAX_USES_LIBRARY_CHECK=true
 export BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES=true
@@ -58,6 +52,5 @@ export SKIP_ABI_CHECKS=true
 export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 #export TARGET_DEFAULT_PIXEL_LAUNCHER=true 
 
-lunch blaze_chime-userdebug
-make bacon
-
+blissify -v -d lime
+blissify -v -d citrus
