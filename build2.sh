@@ -7,7 +7,7 @@
 do_cleanremove=no
 
 # Do repo init for rom that we want to build.
-repo init --depth=1 -u https://github.com/BananaDroid-Revived/android_manifest.git -b 11 --git-lfs --no-repo-verify
+repo init --depth=1 -u https://github.com/xdCLO-Modified/xd_manifest -b eleven --git-lfs --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device/xiaomi vendor/xiaomi kernel/xiaomi hardware/xiaomi 
@@ -27,15 +27,6 @@ fi
 
 git clone -b banana https://github.com/Glamoth-Firnament/device_xiaomi_juice-R device/xiaomi/juice
 git clone -b eleven https://github.com/zaidanprjkt/android_vendor_xiaomi_juice vendor/xiaomi/juice
-git clone -b 13.0.0-perf https://github.com/greenforce-project/kernel_xiaomi_citrus_sm6115 kernel/xiaomi/juice
-
-rm -rf packages/apps/Settings
-git clone --depth=1 -b 11 https://github.com/newestzdn/settings_banana packages/apps/Settings
-
-rm -rf vendor/banana
-git clone --depth=1 -b 11 https://github.com/newestzdn/android_vendor_banana vendor/banana
-
-#rm -rf external/chromium-webview/patches
 
 # Do lunch
 . build/envsetup.sh
@@ -60,6 +51,6 @@ export SKIP_ABI_CHECKS=true
 #export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 #export TARGET_DEFAULT_PIXEL_LAUNCHER=true 
 
-lunch banana_juice-user
-make banana
+lunch xdroid_juice-user
+make xd
 
