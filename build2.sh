@@ -25,7 +25,8 @@ if [ "$do_smallremove" = "yes" ]; then
 fi
 
 # Clone our local manifest.
-git clone https://github.com/Glamoth-Firnament/device_xiaomi_juice-R -b los
+git clone https://github.com/Glamoth-Firnament/device_xiaomi_juice-R -b los device/xiaomi/juice
+git clone -b eleven https://github.com/zaidanprjkt/android_vendor_xiaomi_juice vendor/xiaomi/juice
 
 # Let's sync!
 /opt/crave/resync.sh
@@ -46,7 +47,7 @@ git clone https://github.com/Glamoth-Firnament/device_xiaomi_juice-R -b los
 
 # Do lunch
 . build/envsetup.sh
-lunch "${rom_name}"_"${device_codename}"-user
+lunch lineage_juice-user
 
 # Allow neverallow if userdebug
 #xport SELINUX_IGNORE_NEVERALLOWS=true
