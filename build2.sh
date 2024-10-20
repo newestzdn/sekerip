@@ -5,12 +5,12 @@
 
 # Define variable 
 device_codename=juice
-rom_name=carbon
+rom_name=lineage
 build_type=user
 
 
 # Do repo init for rom that we want to build.
-repo init -u https://github.com/CarbonROM/android -b cr-9.0  --git-lfs --depth=1 --no-repo-verify
+repo init -u https://github.com/LineageOS-Revived/android -b lineage-18.1  --git-lfs --depth=1 --no-repo-verify
 
 # Remove tree before cloning our manifest.
 rm -rf device vendor kernel packages/resources/devicesettings system/core 
@@ -25,7 +25,7 @@ if [ "$do_smallremove" = "yes" ]; then
 fi
 
 # Clone our local manifest.
-git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch_tree .repo/local_manifests
+git clone https://github.com/Glamoth-Firnament/device_xiaomi_juice-R -b los
 
 # Let's sync!
 /opt/crave/resync.sh
@@ -46,7 +46,7 @@ git clone https://github.com/zaidanprjkt/local_manifest.git --depth 1 -b $branch
 
 # Do lunch
 . build/envsetup.sh
-lunch "${rom_name}"_"${device_codename}"-ap1a-userdebug
+lunch "${rom_name}"_"${device_codename}"-user
 
 # Allow neverallow if userdebug
 #xport SELINUX_IGNORE_NEVERALLOWS=true
@@ -69,4 +69,4 @@ export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
 export BUILD_BROKEN_INCORRECT_PARTITION_IMAGES=true
 
 # Let's start build!
-$build_command -j$(nproc --all)
+mka bacon
